@@ -20,6 +20,12 @@
         android:enabled="true"/>
 
     <item
+        android:id="@+id/quickScanFragment"
+        android:icon="@drawable/ic_quick_scan_iconstocka"
+        android:title="Quick Scan"
+        android:enabled="true"/>
+
+    <item
         android:id="@+id/accountFragment"
         android:icon="@drawable/ic_accounts_iconstocka"
         android:title="Account"

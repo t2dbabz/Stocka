@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    app:cardCornerRadius="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/product_item_imageView"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:src="@drawable/indomitables_chicken_70g"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_item_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Indomie"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/product_item_imageView"
+            app:layout_constraintTop_toTopOf="@+id/product_item_imageView" />
+
+        <TextView
+            android:id="@+id/product_item_sellingPrice_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Price: $200"
+            app:layout_constraintEnd_toEndOf="@+id/product_item_name_textView"
+            app:layout_constraintStart_toStartOf="@+id/product_item_name_textView"
+            app:layout_constraintTop_toBottomOf="@+id/product_item_name_textView" />
+
+        <TextView
+            android:id="@+id/product_item_quantity_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Qty: 500"
+            app:layout_constraintEnd_toEndOf="@+id/product_item_sellingPrice_textView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/product_item_sellingPrice_textView"
+            app:layout_constraintTop_toBottomOf="@+id/product_item_sellingPrice_textView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
