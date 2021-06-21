@@ -33,7 +33,53 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.pjt114.stocka.ui.SignUpFragment"
+        android:name="com.example.pjt114.stocka.ui.loginsignup.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_accountSetUpFragment"
+            app:destination="@id/accountSetUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountSetUpFragment"
+        android:name="com.example.pjt114.stocka.ui.loginsignup.AccountSetUpFragment"
+        android:label="fragment_account_set_up"
+        tools:layout="@layout/fragment_account_set_up" >
+        <action
+            android:id="@+id/action_accountSetUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.pjt114.stocka.ui.loginsignup.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.pjt114.stocka.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.example.pjt114.stocka.ui.StatsFragment"
+        android:label="fragment_stats"
+        tools:layout="@layout/fragment_stats" />
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.pjt114.stocka.ui.ProductsFragment"
+        android:label="ProductsFragment" />
+    <fragment
+        android:id="@+id/quickScanFragment"
+        android:name="com.example.pjt114.stocka.ui.QuickScanFragment"
+        android:label="fragment_quick_scan"
+        tools:layout="@layout/fragment_quick_scan" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.pjt114.stocka.ui.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
 </navigation>

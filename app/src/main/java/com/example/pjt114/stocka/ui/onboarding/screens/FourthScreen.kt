@@ -24,7 +24,7 @@ class FourthScreen : Fragment() {
         val view = inflater.inflate(R.layout.fragment_four_screen, container, false)
 
 
-        val viewPager = activity?.findViewById<ViewPager2>(R.id.view_pager)
+
 
         val button = view.findViewById<Button>(R.id.button)
         button.setOnClickListener {
