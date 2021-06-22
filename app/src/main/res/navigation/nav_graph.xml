@@ -60,26 +60,26 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.pjt114.stocka.ui.HomeFragment"
+        android:name="com.example.pjt114.stocka.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/statsFragment"
-        android:name="com.example.pjt114.stocka.ui.StatsFragment"
+        android:name="com.example.pjt114.stocka.ui.stats.StatsFragment"
         android:label="fragment_stats"
         tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.example.pjt114.stocka.ui.ProductsFragment"
+        android:name="com.example.pjt114.stocka.ui.products.ProductsFragment"
         android:label="ProductsFragment" />
     <fragment
         android:id="@+id/quickScanFragment"
-        android:name="com.example.pjt114.stocka.ui.QuickScanFragment"
+        android:name="com.example.pjt114.stocka.ui.quickscan.QuickScanFragment"
         android:label="fragment_quick_scan"
         tools:layout="@layout/fragment_quick_scan" />
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.pjt114.stocka.ui.AccountFragment"
+        android:name="com.example.pjt114.stocka.ui.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
 </navigation>

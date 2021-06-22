@@ -1,4 +1,4 @@
-package com.example.pjt114.stocka.ui
+package com.example.pjt114.stocka.ui.account
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.pjt114.stocka.R
 
 
-class StatsFragment : Fragment() {
+class AccountFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class StatsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stats, container, false)
+        return inflater.inflate(R.layout.fragment_account, container, false)
     }
 
 

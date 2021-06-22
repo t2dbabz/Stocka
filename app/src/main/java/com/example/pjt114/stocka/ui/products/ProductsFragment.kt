@@ -1,4 +1,4 @@
-package com.example.pjt114.stocka.ui
+package com.example.pjt114.stocka.ui.products
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import com.example.pjt114.stocka.R
 
 
-class QuickScanFragment : Fragment() {
+
+class ProductsFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,7 +17,7 @@ class QuickScanFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quick_scan, container, false)
+        return inflater.inflate(R.layout.fragment_products, container, false)
     }
 
 
