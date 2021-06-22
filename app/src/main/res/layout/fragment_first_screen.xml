@@ -152,18 +152,22 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:layout_marginTop="98dp"
         android:layout_marginEnd="132dp"
         android:layout_marginBottom="68dp"
+        android:paddingStart="43dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="43dp"
+        android:paddingBottom="15dp"
         android:text="continue"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
