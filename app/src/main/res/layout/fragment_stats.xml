@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.stats.StatsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/statsFragment_tabLayout"
+        app:tabRippleColor="@color/yellow"
+        android:layout_marginStart="@dimen/margin_20"
+        android:layout_marginEnd="@dimen/margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/yellow"
+        app:tabIndicator="@drawable/tab_indicator"
+        app:tabTextAppearance="@style/MyCustomTabTextAppearance"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@android:color/darker_gray"
+        app:tabIndicatorHeight="4dp"
+        app:tabGravity="center" />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/statsFragment_viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</FrameLayout>
+
+</LinearLayout>

@@ -40,10 +40,6 @@ class ViewPagerFragment : Fragment() {
         )
 
         view.findViewById<ViewPager2>(R.id.view_pager).adapter = adapter
-
-
-
-
         return  view
     }
 
