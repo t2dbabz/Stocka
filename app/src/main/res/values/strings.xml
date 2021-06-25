@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Stocka</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="expense_category">
+        <item>Bills</item>
+        <item>Payment</item>
+        <item>Tax</item>
+    </string-array>
 </resources>
