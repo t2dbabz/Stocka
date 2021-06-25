@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/statsFragment">
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.example.pjt114.stocka.ui.onboarding.ViewPagerFragment"
