@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Stocka</string>
+
+    <string-array name="expense_category">
+        <item>Bills</item>
+        <item>Payment</item>
+        <item>Tax</item>
+    </string-array>
+</resources>
