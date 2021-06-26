@@ -54,7 +54,7 @@ where LINK is the link copied from the original repo.
   - run ```git push``` to push your changes to your fork. 
   - Create the pull request again.
 - Create pull request and notify @seunbayo so he can review and merge your pull request
-- Also notify me so @Ose4g so hw knows you have completed your task successfully.
+- Also notify me so @t2dbabz so hw knows you have completed your task successfully.
 
 
 #### If there are any questions ask @t2dbabz on Slack.
