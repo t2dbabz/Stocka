@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.pjt114.stocka.R
+import com.example.pjt114.stocka.databinding.FragmentPurchasesBinding
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
@@ -13,19 +14,22 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 
 
 class PurchasesFragment : Fragment() {
+    private var binding : FragmentPurchasesBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_purchases, container, false)
+        val fragmentBinding = FragmentPurchasesBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val aaChartView = view.findViewById<AAChartView>(R.id.aa_chartView_purchases)
+        val aaChartView = binding?.aaChartViewPurchases
 
         val aaChartModel : AAChartModel = AAChartModel()
             .chartType(AAChartType.Spline)
@@ -41,7 +45,7 @@ class PurchasesFragment : Fragment() {
             )
             )
 
-        aaChartView.aa_drawChartWithChartModel(aaChartModel)
+        aaChartView?.aa_drawChartWithChartModel(aaChartModel)
     }
 
 

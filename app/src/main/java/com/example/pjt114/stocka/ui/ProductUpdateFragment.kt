@@ -6,16 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.pjt114.stocka.R
+import com.example.pjt114.stocka.databinding.FragmentProductUpdateBinding
 
 
 class ProductUpdateFragment : Fragment() {
+    private var binding: FragmentProductUpdateBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_update, container, false)
+        val fragmentBinding = FragmentProductUpdateBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
     }
 
 
