@@ -48,6 +48,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
+        android:id="@+id/bottomSheet"
         layout="@layout/quick_scan_bottomsheet_layout"
         />
 

@@ -13,13 +13,16 @@ import android.widget.Toast
 import com.afollestad.assent.Permission
 import com.afollestad.assent.runWithPermissions
 import com.example.pjt114.stocka.R
+import com.example.pjt114.stocka.databinding.FragmentQuickScanBinding
+import com.example.pjt114.stocka.databinding.QuickScanBottomsheetLayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.zxing.integration.android.IntentIntegrator
 
 
 class QuickScanFragment : Fragment() {
 
-    lateinit var textViewResult: TextView
+    private var binding : FragmentQuickScanBinding? = null
+    private lateinit var textViewResult: TextView
     private val barcodeManager by lazy { BarcodeScanner(this) }
     private lateinit var bottomSheetBehaviour: BottomSheetBehavior<FrameLayout>
 
@@ -27,9 +30,11 @@ class QuickScanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quick_scan, container, false)
+        val fragmentBinding = FragmentQuickScanBinding.inflate(inflater,container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
     }
 
 
@@ -65,6 +70,7 @@ class QuickScanFragment : Fragment() {
                 val barcode: String = result.contents
                 bottomSheetBehaviour.state = BottomSheetBehavior.STATE_EXPANDED
                 textViewResult.text = barcode
+
             }
         } else {
             Toast.makeText(requireContext(), "No result", Toast.LENGTH_LONG)

@@ -9,29 +9,32 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.pjt114.stocka.R
+import com.example.pjt114.stocka.databinding.FragmentAccountSetUpBinding
 
 
 class AccountSetUpFragment : Fragment() {
 
+    private var binding: FragmentAccountSetUpBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_account_set_up, container, false)
+        val fragmentBinding = FragmentAccountSetUpBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
 
-        val button = view.findViewById<Button>(R.id.continue_button)
-        button.setOnClickListener {
+        val button = binding?.continueButton
+        button?.setOnClickListener {
             findNavController().navigate(R.id.action_accountSetUpFragment_to_loginFragment)
         }
 
 
 
 
-        return view
+        return fragmentBinding.root
     }
 
 

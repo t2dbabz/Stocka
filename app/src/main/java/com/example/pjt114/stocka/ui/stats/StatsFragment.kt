@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.pjt114.stocka.R
+import com.example.pjt114.stocka.databinding.FragmentStatsBinding
 import com.example.pjt114.stocka.ui.stats.tabfragments.ExpensesFragment
 import com.example.pjt114.stocka.ui.stats.tabfragments.ProfitLossFragment
 import com.example.pjt114.stocka.ui.stats.tabfragments.PurchasesFragment
@@ -16,14 +17,17 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 
 class StatsFragment : Fragment() {
+    private var binding: FragmentStatsBinding? = null
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_stats, container, false)
+        val fragmentBinding = FragmentStatsBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+
 
         val fragmentList = arrayListOf<Fragment>(
             ProfitLossFragment(),
@@ -38,16 +42,16 @@ class StatsFragment : Fragment() {
             lifecycle
         )
 
-        view.findViewById<ViewPager2>(R.id.statsFragment_viewPager).adapter = adapter
+        binding?.statsFragmentViewPager?.adapter = adapter
 
-        return view
+        return fragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tabLayout = view.findViewById<TabLayout>(R.id.statsFragment_tabLayout)
-        val viewPager2 = view.findViewById<ViewPager2>(R.id.statsFragment_viewPager)
+        val tabLayout = binding?.statsFragmentTabLayout!!
+        val viewPager2 = binding?.statsFragmentViewPager!!
 
         val statsTabListName = arrayListOf<String>(
             "Profit/Loss",
