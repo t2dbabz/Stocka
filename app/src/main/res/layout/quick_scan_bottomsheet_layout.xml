@@ -5,7 +5,6 @@
     android:layout_height="680dp"
     android:background="@drawable/rounded"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottomSheet"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +16,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="60dp"
-            android:src="@drawable/indomitables_chicken_70g"
+            tools:src="@drawable/indomitables_chicken_70g"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Indomie"
+            tools:text="Indomie"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +40,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Price: $2,000"
-            android:textSize="@dimen/margin_20"
+            tools:text="@string/quickScan_price"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,31 +53,32 @@
             android:id="@+id/quickScanProductQuantity_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Qty: 100"
-            android:textSize="@dimen/margin_20"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/stocka_green"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/quickScanProductPrice_textView" />
-
-        <ImageView
-            android:id="@+id/quickScanAddQty_button"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="117dp"
-            android:layout_marginTop="44dp"
-            android:src="@drawable/ic_baseline_add_circle_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/quickScanProductQuantity_textView" />
+            app:layout_constraintTop_toBottomOf="@+id/quickScanProductPrice_textView"
+            tools:text="@string/quick_scan_qty" />
 
         <ImageView
             android:id="@+id/quickScanRemoveQty_button"
             android:layout_width="42dp"
             android:layout_height="42dp"
+            android:layout_marginStart="117dp"
+            android:layout_marginTop="44dp"
+            android:src="@drawable/ic_baseline_remove_circle_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quickScanProductQuantity_textView" />
+
+        <ImageView
+            android:id="@+id/quickScanAddQty_button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_marginTop="44dp"
             android:layout_marginEnd="117dp"
-            android:src="@drawable/ic_baseline_remove_circle_24"
+            android:src="@drawable/ic_baseline_add_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quickScanProductQuantity_textView" />
 
@@ -83,15 +87,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:text="0"
+            android:text="@string/intial_count_value"
+            android:textColor="@color/black"
             android:textSize="48sp"
-            app:layout_constraintEnd_toStartOf="@+id/quickScanRemoveQty_button"
+            app:layout_constraintEnd_toStartOf="@+id/quickScanAddQty_button"
             app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toEndOf="@+id/quickScanAddQty_button"
+            app:layout_constraintStart_toEndOf="@+id/quickScanRemoveQty_button"
             app:layout_constraintTop_toBottomOf="@+id/quickScanProductQuantity_textView" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/backToHome_button"
+            android:id="@+id/quickScanSell_button"
             style="@style/TextAppearance.MaterialComponents.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -101,7 +106,7 @@
             android:backgroundTint="@color/yellow"
             android:paddingTop="18dp"
             android:paddingBottom="18dp"
-            android:text="Sell"
+            android:text="@string/sell"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
