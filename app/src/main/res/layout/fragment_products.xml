@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="parent">
         <View
             android:id="@+id/product_menu_icon"
-            android:layout_width="24dp"
-            android:layout_height="15dp"
+            android:layout_width="25dp"
+            android:layout_height="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,7 @@
             app:layout_constraintStart_toEndOf="@id/product_menu_icon"
             android:layout_marginStart="37.78dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="21sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.284"
             app:layout_constraintTop_toTopOf="parent" />
