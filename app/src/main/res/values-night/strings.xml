@@ -1,21 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Stocka</string>
     <string name="account">Account</string>
     <string name="mp_ventures">Mp Ventures</string>
     <string name="my_details">My Details</string>
     <string name="settings">Settings</string>
     <string name="faqs">FAQs</string>
     <string name="logout">Logout</string>
-    <string name="stocka_all_">© 2021, Stocka. All rights reserved</string>
+    <string name="stocka_all_">Â© 2021, Stocka. All rights reserved</string>
     <string name="products">Products</string>
     <string name="all_products">All Products</string>
     <string name="provisions">Provisions</string>
     <string name="kitchen">Kitchen</string>
     <string name="others">Others</string>
-
-    <string-array name="expense_category">
-        <item>Bills</item>
-        <item>Payment</item>
-        <item>Tax</item>
-    </string-array>
 </resources>

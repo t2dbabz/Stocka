@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/productEditFragment">
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.example.pjt114.stocka.ui.onboarding.ViewPagerFragment"
@@ -81,10 +81,24 @@
         android:id="@+id/accountFragment"
         android:name="com.example.pjt114.stocka.ui.account.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productUpdateFragment"
         android:name="com.example.pjt114.stocka.ui.ProductUpdateFragment"
         android:label="fragment_product_update"
         tools:layout="@layout/fragment_product_update" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.pjt114.stocka.ui.products.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/productEditFragment"
+        android:name="com.example.pjt114.stocka.ui.products.ProductEditFragment"
+        android:label="fragment_product_edit"
+        tools:layout="@layout/fragment_product_edit" />
 </navigation>
