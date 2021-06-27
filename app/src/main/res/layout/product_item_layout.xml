@@ -24,27 +24,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Indomie"
+            tools:text="Indomie"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/product_item_imageView"
             app:layout_constraintTop_toTopOf="@+id/product_item_imageView" />
 
         <TextView
             android:id="@+id/product_item_sellingPrice_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Price: $200"
+            android:text="@string/product_Price"
+            tools:text="$200"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/product_item_name_textView"
             app:layout_constraintStart_toStartOf="@+id/product_item_name_textView"
             app:layout_constraintTop_toBottomOf="@+id/product_item_name_textView" />
 
         <TextView
             android:id="@+id/product_item_quantity_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Qty: 500"
+            android:text="@string/product_qty"
             app:layout_constraintEnd_toEndOf="@+id/product_item_sellingPrice_textView"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/product_item_sellingPrice_textView"
