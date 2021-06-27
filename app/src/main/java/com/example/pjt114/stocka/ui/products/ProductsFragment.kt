@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.adapter.ProductAdapter
@@ -35,6 +36,16 @@ class ProductsFragment : Fragment() {
         productAdapter.differ.submitList(DataSource().loadProducts())
         binding?.productItemRecyclerView?.adapter = productAdapter
         binding?.productItemRecyclerView?.layoutManager = LinearLayoutManager(activity)
+
+//        productAdapter.setOnItemClickListener {
+//            val bundle = Bundle().apply {
+//                putSerializable("productItem", it)
+//            }
+//            findNavController().navigate(
+//                R.id.action_,
+//                bundle
+//            )
+//        }
 
 
 
