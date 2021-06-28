@@ -1,7 +1,11 @@
 package com.example.pjt114.stocka.ui.quickscan
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +14,8 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.afollestad.assent.Permission
 import com.afollestad.assent.runWithPermissions
@@ -36,6 +42,9 @@ class QuickScanFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
+
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentQuickScanBinding.inflate(inflater,container, false)
         binding = fragmentBinding
@@ -87,7 +96,7 @@ class QuickScanFragment : Fragment() {
 
     private fun searchListForMatch(barcode:String){
         for( item in productList.indices ){
-            if(productList[item].barcode.equals(barcode)){
+            if(productList[item].barcode == barcode){
                 bottomSheetBehaviour.state = BottomSheetBehavior.STATE_EXPANDED
                 binding?.bottomSheet?.quickScanProductNameTextView?.text = productList[item].name
                 binding?.bottomSheet?.quickScanProductPriceTextView?.text =
@@ -119,6 +128,12 @@ class QuickScanFragment : Fragment() {
             super.onActivityResult(requestCode, resultCode, data)
         }
 
+    }
+
+    private fun ActionBar.setTitleColor(color: Int) {
+        val text = SpannableString(title ?: "")
+        text.setSpan(ForegroundColorSpan(color),0,text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        title = text
     }
 
 }
