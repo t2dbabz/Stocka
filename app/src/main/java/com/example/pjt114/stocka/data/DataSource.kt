@@ -24,7 +24,19 @@ class DataSource (){
                 productImage = R.drawable.cocopops,
                 barcode = "6154000101282"
 
-            )
+            ),
+
+            ProductItem(
+                name = "Kelloggs Coco pops",
+                sellingPrice = 50.0,
+                buyingPrice = 40.0,
+                quantity = 250,
+                productImage = R.drawable.cocopops,
+                barcode = "6154000101282"
+
+            ),
+
+
         )
     }
 }
