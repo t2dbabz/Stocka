@@ -5,6 +5,7 @@
         <item name="tabIndicatorColor">?attr/colorAccent</item>
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabPaddingStart">12dp</item>
+        <item name="tabIndicator">@drawable/tab_indicator</item>
         <item name="tabPaddingEnd">12dp</item>
         <item name="tabBackground">?attr/selectableItemBackground</item>
         <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
@@ -34,5 +35,10 @@
     <style name="stocka_all_">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
+    <item name="chipBackgroundColor">@color/chip_backgroud_color</item>
+    <item name="android:textColor">@color/chip_text_color</item>
     </style>
 </resources>

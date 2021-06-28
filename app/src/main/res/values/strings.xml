@@ -12,8 +12,14 @@
     <string name="provisions">Provisions</string>
     <string name="kitchen">Kitchen</string>
     <string name="others">Others</string>
-    <string name="product_Price">\u20A6 %1$s</string>
+    <string name="product_Price">\u20A6%1$s</string>
     <string name="product_qty">Qty: %1$s</string>
+    <string name="quickScan_price">Price: \u20A6%1$s</string>
+    <string name="quick_scan_qty">Qty: %1$s</string>
+    <string name="sell">Sell</string>
+    <string name="intial_count_value">0</string>
+    <string name="product_detail_price">\u20A6%1$s</string>
+    <string name="product_detail_total_price">\u20A6%1$s</string>
 
     <string-array name="expense_category">
         <item>Bills</item>
