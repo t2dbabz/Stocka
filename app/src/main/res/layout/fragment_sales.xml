@@ -55,6 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="28dp"
+            android:textSize="18sp"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
             android:text="Top Selling Products"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -83,18 +85,21 @@
                     android:id="@+id/topSellingProduct1_textview"
                     android:layout_weight="1"
                     android:text="Indomie"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"/>
                 <TextView
                     android:id="@+id/topSellingProduct2_textview"
                     android:text="Spaghetti"
                     android:layout_weight="1"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"/>
                 <TextView
                     android:id="@+id/topSellingProduct3_textview"
                     android:layout_weight="1"
                     android:text="Parle X Biscuit"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"/>
             </LinearLayout>
@@ -106,7 +111,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="28dp"
+            android:textSize="18sp"
             android:text="Least Selling Products"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,6 +144,7 @@
                     android:id="@+id/leastSellingProduct1_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:textSize="16sp"
                     android:layout_weight="1"
                     android:text="Okomu Oil" />
 
@@ -145,12 +153,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="16sp"
                     android:text="Oreos" />
 
                 <TextView
                     android:id="@+id/leastSellingProduct3_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:textSize="16sp"
                     android:layout_weight="1"
                     android:text="Poundo Yam" />
             </LinearLayout>

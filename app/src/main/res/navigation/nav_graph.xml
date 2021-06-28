@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/productsFragment">
+    app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.example.pjt114.stocka.ui.onboarding.ViewPagerFragment"
@@ -61,26 +61,31 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.pjt114.stocka.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.example.pjt114.stocka.ui.stats.StatsFragment"
-        android:label="fragment_stats"
+        android:label="Stats"
         tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.pjt114.stocka.ui.products.ProductsFragment"
-        android:label="ProductsFragment" >
+        android:label="Products">
         <action
             android:id="@+id/action_productsFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/quickScanFragment"
         android:name="com.example.pjt114.stocka.ui.quickscan.QuickScanFragment"
-        android:label="fragment_quick_scan"
-        tools:layout="@layout/fragment_quick_scan" >
+        android:label="Quick Scan"
+        tools:layout="@layout/fragment_quick_scan">
         <action
             android:id="@+id/action_quickScanFragment_to_productUpdateFragment"
             app:destination="@id/productUpdateFragment" />
@@ -88,8 +93,8 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.pjt114.stocka.ui.account.AccountFragment"
-        android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
+        android:label="Account"
+        tools:layout="@layout/fragment_account">
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -97,22 +102,28 @@
     <fragment
         android:id="@+id/productUpdateFragment"
         android:name="com.example.pjt114.stocka.ui.ProductUpdateFragment"
-        android:label="fragment_product_update"
-        tools:layout="@layout/fragment_product_update" />
+        tools:layout="@layout/fragment_product_update">
+        <action
+            android:id="@+id/action_productUpdateFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.example.pjt114.stocka.ui.products.ProductDetailsFragment"
-        android:label="fragment_product_details"
-        tools:layout="@layout/fragment_product_details" >
+        android:label="Details"
+        tools:layout="@layout/fragment_product_details">
         <action
             android:id="@+id/action_productDetailsFragment_to_productEditFragment"
             app:destination="@id/productEditFragment" />
+        <argument
+            android:name="productItem"
+            app:argType="com.example.pjt114.stocka.model.ProductItem" />
     </fragment>
     <fragment
         android:id="@+id/productEditFragment"
         android:name="com.example.pjt114.stocka.ui.products.ProductEditFragment"
-        android:label="fragment_product_edit"
-        tools:layout="@layout/fragment_product_edit" >
+        android:label="Edit Product"
+        tools:layout="@layout/fragment_product_edit">
         <action
             android:id="@+id/action_productEditFragment_to_productUpdateFragment"
             app:destination="@id/productUpdateFragment" />

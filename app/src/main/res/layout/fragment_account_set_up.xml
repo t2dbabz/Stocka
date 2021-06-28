@@ -24,6 +24,7 @@
         android:layout_marginTop="142dp"
         android:layout_marginEnd="100dp"
         android:text="Complete Account Setup"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
