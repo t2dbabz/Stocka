@@ -1,10 +1,16 @@
 package com.example.pjt114.stocka.ui.stats
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.databinding.FragmentStatsBinding
@@ -24,6 +30,9 @@ class StatsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
+
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentStatsBinding.inflate(inflater, container, false)
         binding = fragmentBinding
@@ -64,7 +73,5 @@ class StatsFragment : Fragment() {
             tab.text = statsTabListName[position]
         }.attach()
     }
-
-
 
 }

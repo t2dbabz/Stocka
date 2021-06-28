@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Stocka.iml" filepath="$PROJECT_DIR$/.idea/modules/Stocka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Stocka.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Stocka.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/stocka-mobile-pjt-114.iml" filepath="$PROJECT_DIR$/.idea/stocka-mobile-pjt-114.iml" />
     </modules>
   </component>
 </project>
