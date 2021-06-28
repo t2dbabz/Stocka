@@ -73,17 +73,54 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/product_item_layout"
         app:layout_constraintTop_toBottomOf="@+id/searchBar_cardView" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_product"
-        android:backgroundTint="@color/yellow"
-        android:background="@color/yellow"
+        android:id="@+id/add_f"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_add_24"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add_24"
+        tools:ignore="VectorDrawableCompat" />
+    <!--This act a child Floating Action Button-->
+    <!-- The visibility is been set to INVISIBLE -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:focusable="true"
+        android:tint="@color/white"
+        app:fabSize="mini"
+        android:backgroundTint="@color/bluish_green"
+        app:layout_constraintBottom_toTopOf="@+id/add_f"
+        app:layout_constraintEnd_toEndOf="@+id/add_f"
+        app:srcCompat="@drawable/ic_create_group" />
+    <!--This act a child Floating Action Button-->
+    <!-- The visibility is been set to INVISIBLE -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/setting_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        android:tint="@color/white"
+        app:fabSize="mini"
+        android:backgroundTint="@color/red"
+        app:layout_constraintBottom_toTopOf="@+id/edit_f"
+        app:layout_constraintEnd_toEndOf="@+id/edit_f"
+        app:srcCompat="@drawable/ic_create_item" />
 
     <com.google.android.material.chip.ChipGroup
         android:layout_width="0dp"
