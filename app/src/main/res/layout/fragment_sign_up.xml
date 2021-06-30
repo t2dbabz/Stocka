@@ -66,6 +66,7 @@
             android:id="@+id/fullName_editTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +87,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneNumber_editTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +108,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailAddress_editTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -126,7 +129,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/industry_editTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 

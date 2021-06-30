@@ -3,12 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.loginsignup.AccountSetUpFragment" android:layout_height="wrap_content"
+    tools:context=".ui.loginsignup.AccountSetUpFragment"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/stocka_logo"
@@ -68,6 +69,7 @@
             android:id="@+id/username_editTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +107,7 @@
             android:id="@+id/password_editTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,11 +144,12 @@
             android:id="@+id/confirmPassword_editTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/continue_button"
+        android:id="@+id/completeSign_button"
         style="@style/TextAppearance.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
