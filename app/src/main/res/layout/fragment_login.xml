@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.loginsignup.LoginFragment">
+    tools:context=".ui.loginsignup.LoginFragment"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/stocka_logo"
@@ -18,17 +24,17 @@
 
     <TextView
         android:id="@+id/textView1"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="291dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="147dp"
-        android:textColor="@color/black_text"
         android:text="Welcome Back!"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stocka_logo" />
 
@@ -45,6 +51,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusBottomEnd="10dp"
         android:hint="Username"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +78,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusBottomEnd="10dp"
         android:hint="Password"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +86,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_editTextField"
-            android:inputType="textPassword"
+            android:inputType="text|textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp" />
@@ -105,5 +113,27 @@
         app:layout_constraintTop_toBottomOf="@+id/password_TextField"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/doYouHaveAnAccount_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Don't Have an Account?"
+        app:layout_constraintEnd_toEndOf="@+id/login_button"
+        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintStart_toStartOf="@+id/login_button"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
+    <TextView
+        android:id="@+id/textView_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Sign up"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/doYouHaveAnAccount_title"
+        app:layout_constraintStart_toEndOf="@+id/doYouHaveAnAccount_title"
+        app:layout_constraintTop_toTopOf="@+id/doYouHaveAnAccount_title"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
