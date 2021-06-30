@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center_horizontal"
     android:orientation="horizontal">
     <LinearLayout
@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:text="Total Sales"/>
 
         <TextView
@@ -22,7 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="$84,000"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:text="@string/home_total_sales"
             android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -46,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:text="Stock In"/>
 
         <TextView
@@ -54,7 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="1,000"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:text="1,000"
             android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -78,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:text="Stock Out"/>
 
         <TextView
@@ -86,7 +88,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="1,000"
+            tools:text="1,000"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
             android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>

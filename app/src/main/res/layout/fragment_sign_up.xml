@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.loginsignup.SignUpFragment">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/stocka_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="40dp"
         android:src="@drawable/ic_stocka_logo_icon"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,17 +24,17 @@
 
     <TextView
         android:id="@+id/textView1"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="147dp"
-        android:textColor="@color/black_text"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
         android:text="Let’s get you started"
+        android:textColor="@color/black_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stocka_logo" />
 
@@ -48,9 +54,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="24dp"
         android:hint="Full Name"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +67,7 @@
             android:id="@+id/fullName_editTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,9 +77,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="24dp"
         android:hint="Phone Number"
+        app:counterEnabled="true"
+        app:counterMaxLength="11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +90,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneNumber_editTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="11"
+            android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -89,9 +101,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="24dp"
         android:hint="Email Address"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +113,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailAddress_editTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -109,8 +123,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="24dp"
+        app:errorEnabled="true"
         android:hint="What industry does your business operate in?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -120,7 +135,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/industry_editTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -144,5 +160,29 @@
         app:layout_constraintTop_toBottomOf="@+id/industry_TextField"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/doYouHaveAnAccount_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="Already have an account?"
+        app:layout_constraintEnd_toEndOf="@+id/continue_button"
+        app:layout_constraintStart_toStartOf="@+id/continue_button"
+        app:layout_constraintTop_toBottomOf="@+id/continue_button" />
+
+    <TextView
+        android:id="@+id/textView_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Login"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/doYouHaveAnAccount_title"
+        app:layout_constraintEnd_toEndOf="@+id/continue_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/doYouHaveAnAccount_title"
+        app:layout_constraintTop_toTopOf="@+id/doYouHaveAnAccount_title"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
