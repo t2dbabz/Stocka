@@ -1,7 +1,10 @@
 package com.example.pjt114.stocka.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.pjt114.stocka.model.User
 import com.example.pjt114.stocka.repository.AppRepository
+import kotlinx.coroutines.launch
 
 class SharedViewModel( val appRepository: AppRepository): ViewModel() {
 
@@ -12,6 +15,9 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     var userName: String =""
     var password : String = ""
 
+    init {
+        getUser()
+    }
 
     fun saveFullName(name:String){
         fullName = name
@@ -34,6 +40,12 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     fun savePassword(pass: String){
         password = pass
     }
+
+    fun getUser() = appRepository.getUsers()
+
+   fun insertNewUser(user: User) = viewModelScope.launch {
+       appRepository.insertNewUser(user)
+   }
 
 
 }

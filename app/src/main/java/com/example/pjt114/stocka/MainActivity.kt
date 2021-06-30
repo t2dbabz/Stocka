@@ -12,7 +12,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pjt114.stocka.databinding.ActivityMainBinding
+import com.example.pjt114.stocka.db.AppDatabase
+import com.example.pjt114.stocka.repository.AppRepository
 import com.example.pjt114.stocka.viewmodel.SharedViewModel
+import com.example.pjt114.stocka.viewmodel.SharedViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +25,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+
+        val appRepository = AppRepository(AppDatabase(this))
+        val viewModelProviderFactory = SharedViewModelFactory(appRepository)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SharedViewModel::class.java)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

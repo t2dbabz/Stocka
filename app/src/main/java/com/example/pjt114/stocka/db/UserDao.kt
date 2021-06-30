@@ -13,5 +13,5 @@ interface UserDao {
     fun getUserDetails(): LiveData<List<User>>
 
     @Insert
-    fun insertUserData(user: User)
+    suspend fun insertUserData(user: User)
 }
