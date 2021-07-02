@@ -49,9 +49,6 @@ class SignUpFragment : Fragment() {
         binding?.continueButton?.setOnClickListener {
             hasCompletedSignUpData()
         }
-        binding?.textViewLogin?.setOnClickListener {
-            findNavController().navigate(R.id.loginFragment)
-        }
     }
 
     private fun hasCompletedSignUpData() {
@@ -126,7 +123,7 @@ class SignUpFragment : Fragment() {
     }
 
     /**
-     * field must not be empty
+     * field must not be empy
      */
 
     private fun validateIndustry(): Boolean {
