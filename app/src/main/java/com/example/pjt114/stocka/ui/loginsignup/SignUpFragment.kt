@@ -49,6 +49,9 @@ class SignUpFragment : Fragment() {
         binding?.continueButton?.setOnClickListener {
             hasCompletedSignUpData()
         }
+        binding?.textViewLogin?.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+        }
     }
 
     private fun hasCompletedSignUpData() {

@@ -17,38 +17,47 @@
         android:textStyle="bold"
         android:text="Add Expenses" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dateOfExpense_textField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        app:endIconDrawable="@drawable/ic_baseline_calendar_today_24"
+        app:endIconMode="custom"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dateOfExpense_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="14sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_10"
         android:orientation="horizontal">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/dateOfExpense_textField"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dateOfExpense_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:hint="Date"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/amountOfExpense_textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/OfExpense_editText"
+                android:id="@+id/amountOfExpense_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
+                android:inputType="numberDecimal"
                 android:hint="Amount"/>
         </com.google.android.material.textfield.TextInputLayout>
+
        <Spinner
            android:id="@+id/spinnerCategories"
            android:layout_width="0dp"
@@ -61,6 +70,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameOfExpense_textField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp">
@@ -74,6 +84,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteOfExpense_textField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -99,6 +110,7 @@
          app:layout_constraintTop_toTopOf="parent" />
 
      <com.google.android.material.button.MaterialButton
+         android:id="@+id/cancel_button"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          style="@style/Widget.MaterialComponents.Button.TextButton"
