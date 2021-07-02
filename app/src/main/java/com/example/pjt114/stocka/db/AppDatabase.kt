@@ -5,15 +5,17 @@ import androidx.room.Database
 import androidx.room.Entity
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.pjt114.stocka.model.Expense
 import com.example.pjt114.stocka.model.User
 
 @Database(
-    entities = [User::class],
+    entities = [User::class, Expense::class],
     version = 1
 )
 abstract class AppDatabase:RoomDatabase() {
 
     abstract fun getUserDao(): UserDao
+    abstract fun getExpenseDao(): ExpenseDao
 
     companion object{
         @Volatile
