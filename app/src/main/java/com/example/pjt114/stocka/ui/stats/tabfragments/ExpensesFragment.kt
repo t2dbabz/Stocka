@@ -1,15 +1,17 @@
 package com.example.pjt114.stocka.ui.stats.tabfragments
 
-import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pjt114.stocka.MainActivity
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.adapter.ExpenseAdapter
 import com.example.pjt114.stocka.databinding.AddExpenseDialogItemBinding
@@ -17,15 +19,16 @@ import com.example.pjt114.stocka.databinding.FragmentExpensesBinding
 import com.example.pjt114.stocka.model.Expense
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.example.pjt114.stocka.util.transformIntoDatePicker
+import com.example.pjt114.stocka.viewmodel.SharedViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class ExpensesFragment : Fragment() {
     private var binding: FragmentExpensesBinding? = null
+    lateinit var viewModel: SharedViewModel
     private lateinit var expenseAdapter: ExpenseAdapter
     private val expenseList = mutableListOf<Expense>()
 
@@ -33,6 +36,8 @@ class ExpensesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        viewModel = (activity as MainActivity).viewModel
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentExpensesBinding.inflate(inflater, container, false)
         binding = fragmentBinding
@@ -46,6 +51,11 @@ class ExpensesFragment : Fragment() {
         expenseAdapter = ExpenseAdapter()
         binding?.expenseRecyclerView?.adapter = expenseAdapter
         binding?.expenseRecyclerView?.layoutManager = LinearLayoutManager(activity)
+
+        viewModel.getExpenses().observe(viewLifecycleOwner, {
+            expenseAdapter.differ.submitList(it)
+            expenseAdapter.notifyDataSetChanged()
+        })
 
         val aaChartView = binding?.aaChartViewExpenses
 
@@ -70,6 +80,18 @@ class ExpensesFragment : Fragment() {
             setupExpenseDialog()
         }
 
+        expenseAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("expenseItem", it)
+            }
+
+            findNavController().navigate(
+                R.id.action_statsFragment_to_expenseDetailFragment,
+                bundle
+            )
+        }
+
+
     }
 
     private fun setupExpenseDialog() {
@@ -92,6 +114,25 @@ class ExpensesFragment : Fragment() {
             Date()
         )
 
+        val customList = listOf<String>("Bills", "Payment", "Tax")
+        addExpenseDialogItemBinding.spinnerCategories.adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, customList)
+        addExpenseDialogItemBinding.spinnerCategories.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    adapterView: AdapterView<*>?,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    val expenseCategory = adapterView?.getItemAtPosition(position).toString()
+                    viewModel.saveExpenseCategory(expenseCategory)
+                }
+
+                override fun onNothingSelected(adapterView: AdapterView<*>?) {
+
+                }
+            }
+
         addExpenseDialogItemBinding.addExpenseButton.setOnClickListener {
 
             val expenseAmount =
@@ -100,35 +141,23 @@ class ExpensesFragment : Fragment() {
                 addExpenseDialogItemBinding.nameOfExpenseEditText.text.toString().trim()
             val expenseNote =
                 addExpenseDialogItemBinding.noteOfExpenseEditText.text.toString().trim()
-            var expenseCategory = ""
 
-            addExpenseDialogItemBinding.spinnerCategories.onItemSelectedListener =
-                object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(
-                        adapterView: AdapterView<*>?,
-                        view: View,
-                        posiion: Int,
-                        id: Long
-                    ) {
-                        expenseCategory = adapterView?.getItemAtPosition(posiion) as String
-                    }
 
-                    override fun onNothingSelected(p0: AdapterView<*>?) {
-                    }
-                }
+
+
 
             val newExpense = Expense(
-                id = 1,
                 name = expenseName,
                 amount = expenseAmount,
-                tag = expenseCategory,
+                tag = viewModel.expenseCategory,
                 date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()),
                 note = expenseNote
             )
 
+            viewModel.insertNewExpense(newExpense)
+            Toast.makeText(context, "New Expense Added Successfully", Toast.LENGTH_SHORT).show()
+
             expenseList.add(newExpense)
-            println(expenseList)
-            expenseAdapter.differ.submitList(expenseList)
             alertDialog.dismiss()
         }
 

@@ -1,16 +1,14 @@
 package com.example.pjt114.stocka.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Entity
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.example.pjt114.stocka.model.Expense
 import com.example.pjt114.stocka.model.User
 
 @Database(
+    version = 2,
     entities = [User::class, Expense::class],
-    version = 1
+   exportSchema = true
 )
 abstract class AppDatabase:RoomDatabase() {
 
@@ -31,8 +29,9 @@ abstract class AppDatabase:RoomDatabase() {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "app_database.db"
-            ).build()
-
+            )
+                .fallbackToDestructiveMigration()
+                .build()
 
     }
 }

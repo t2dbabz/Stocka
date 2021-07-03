@@ -77,7 +77,11 @@
         android:id="@+id/statsFragment"
         android:name="com.example.pjt114.stocka.ui.stats.StatsFragment"
         android:label="Stats"
-        tools:layout="@layout/fragment_stats" />
+        tools:layout="@layout/fragment_stats" >
+        <action
+            android:id="@+id/action_statsFragment_to_expenseDetailFragment"
+            app:destination="@id/expenseDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.pjt114.stocka.ui.products.ProductsFragment"
@@ -133,5 +137,14 @@
         <action
             android:id="@+id/action_productEditFragment_to_productUpdateFragment"
             app:destination="@id/productUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseDetailFragment"
+        android:name="com.example.pjt114.stocka.ui.stats.tabfragments.ExpenseDetailFragment"
+        android:label="fragment_expense_detail"
+        tools:layout="@layout/fragment_expense_detail" >
+        <argument
+            android:name="expenseItem"
+            app:argType="com.example.pjt114.stocka.model.Expense" />
     </fragment>
 </navigation>

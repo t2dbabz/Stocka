@@ -11,7 +11,7 @@ import java.text.DateFormat
 data class Expense(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int,
+    var id: Int = 0,
     @ColumnInfo(name = "name")
     var name: String,
     @ColumnInfo(name = "amount")
