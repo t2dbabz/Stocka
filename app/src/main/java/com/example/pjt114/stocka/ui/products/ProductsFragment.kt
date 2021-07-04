@@ -17,12 +17,19 @@ import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.adapter.ProductAdapter
 import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.FragmentProductsBinding
+import com.google.android.material.animation.AnimationUtils
+import android.view.animation.Animation
 
 
 class ProductsFragment : Fragment() {
 
     private var binding: FragmentProductsBinding? = null
     private lateinit var productAdapter: ProductAdapter
+
+    var closed = false
+    val add =binding?.add
+    val edit=binding?.editF
+    val settings = binding?.settingF
 
 
     override fun onCreateView(
@@ -54,12 +61,55 @@ class ProductsFragment : Fragment() {
                 bundle
             )
         }
+
+        //set the add fab on click listener
+        binding?.add?.setOnClickListener {
+            OnAddButtonClick()
+        }
+        //set the edit fab on click listener
+        edit?.setOnClickListener {
+
+        }
+        //set the last fab on clickListener
+        settings?.setOnClickListener {
+
+        }
     }
 
     private fun ActionBar.setTitleColor(color: Int) {
         val text = SpannableString(title ?: "")
         text.setSpan(ForegroundColorSpan(color),0,text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         title = text
+    }
+
+    private fun OnAddButtonClick() {
+        setVisibility(closed)
+        setAnimation(closed)
+        closed = !closed
+    }
+
+    // A Function used to set the Animation effect
+    private fun setAnimation(closed:Boolean) {
+        if(!closed){
+//            edit?.startAnimation(fromBottom)
+//            settings?.startAnimation(fromBottom)
+//            add?.startAnimation(rotateOpen)
+        }else{
+//            edit?.startAnimation(toBottom)
+//            settings?.startAnimation(toBottom)
+//            add?.startAnimation(rotateClose)
+        }
+    }
+    // used to set visibility to VISIBLE / INVISIBLE
+    private fun setVisibility(closed:Boolean) {
+        if(!closed)
+        {
+            edit?.visibility = View.VISIBLE
+            settings?.visibility = View.VISIBLE
+        }else{
+            edit?.visibility = View.INVISIBLE
+            settings?.visibility = View.INVISIBLE
+        }
     }
 
 
