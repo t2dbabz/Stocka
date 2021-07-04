@@ -6,7 +6,7 @@ import com.example.pjt114.stocka.model.ProductItem
 class DataSource (){
 
     fun loadProducts(): MutableList<ProductItem>{
-        return mutableListOf<ProductItem>(
+        return mutableListOf(
             ProductItem(
                 name = "Indomie noodles",
                 sellingPrice = 150.0,
@@ -90,4 +90,5 @@ class DataSource (){
 
         )
     }
+
 }
