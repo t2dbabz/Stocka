@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/statsFragment">
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.example.pjt114.stocka.ui.onboarding.ViewPagerFragment"
@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_signUpFragment_to_accountSetUpFragment"
             app:destination="@id/accountSetUpFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountSetUpFragment"
@@ -57,6 +60,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -71,7 +77,11 @@
         android:id="@+id/statsFragment"
         android:name="com.example.pjt114.stocka.ui.stats.StatsFragment"
         android:label="Stats"
-        tools:layout="@layout/fragment_stats" />
+        tools:layout="@layout/fragment_stats" >
+        <action
+            android:id="@+id/action_statsFragment_to_expenseDetailFragment"
+            app:destination="@id/expenseDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.pjt114.stocka.ui.products.ProductsFragment"
@@ -127,5 +137,14 @@
         <action
             android:id="@+id/action_productEditFragment_to_productUpdateFragment"
             app:destination="@id/productUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseDetailFragment"
+        android:name="com.example.pjt114.stocka.ui.stats.tabfragments.ExpenseDetailFragment"
+        android:label="fragment_expense_detail"
+        tools:layout="@layout/fragment_expense_detail" >
+        <argument
+            android:name="expenseItem"
+            app:argType="com.example.pjt114.stocka.model.Expense" />
     </fragment>
 </navigation>

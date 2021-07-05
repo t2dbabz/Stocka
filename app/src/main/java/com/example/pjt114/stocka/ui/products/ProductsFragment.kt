@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
@@ -19,12 +18,18 @@ import com.example.pjt114.stocka.adapter.ProductAdapter
 import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.FragmentProductsBinding
 import com.google.android.material.animation.AnimationUtils
+import android.view.animation.Animation
 
 
 class ProductsFragment : Fragment() {
 
     private var binding: FragmentProductsBinding? = null
     private lateinit var productAdapter: ProductAdapter
+
+    var closed = false
+    val add =binding?.add
+    val edit=binding?.editF
+    val settings = binding?.settingF
 
 
     override fun onCreateView(
@@ -38,11 +43,6 @@ class ProductsFragment : Fragment() {
         binding = fragmentBinding
         return fragmentBinding.root
     }
-
-    var closed = false
-    val add =binding?.add
-    val edit=binding?.editF
-    val settings = binding?.settingF
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,15 +61,16 @@ class ProductsFragment : Fragment() {
                 bundle
             )
         }
-       //set the add fab on click listener
+
+        //set the add fab on click listener
         binding?.add?.setOnClickListener {
             OnAddButtonClick()
         }
-       //set the edit fab on click listener
+        //set the edit fab on click listener
         edit?.setOnClickListener {
 
         }
-       //set the last fab on clickListener
+        //set the last fab on clickListener
         settings?.setOnClickListener {
 
         }
