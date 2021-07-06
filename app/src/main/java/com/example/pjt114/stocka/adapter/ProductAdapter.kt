@@ -1,11 +1,13 @@
 package com.example.pjt114.stocka.adapter
 
 import android.content.res.Resources
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.ProductItemLayoutBinding
@@ -21,11 +23,18 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>
 
             fun bindItem(productItem: ProductItem){
                 binding.productItemNameTextView.text = productItem.name
-                binding.productItemImageView.setImageResource(productItem.productImage)
+
+               val imageView =  binding.productItemImageView
+                val imageByteArray = Base64.decode(productItem.productImage, Base64.DEFAULT)
+                Glide.with(imageView.context).load(imageByteArray).placeholder(R.drawable.add_image_placeholder).into(imageView)
+
                 binding.productItemQuantityTextView.text =
                     itemView.context.getString(R.string.product_qty, productItem.quantity.toString())
                 binding.productItemSellingPriceTextView.text =
                     itemView.context.getString(R.string.product_Price, productItem.sellingPrice.toString() )
+
+
+
 
             }
 

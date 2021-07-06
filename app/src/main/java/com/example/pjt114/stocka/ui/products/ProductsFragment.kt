@@ -19,12 +19,15 @@ import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.FragmentProductsBinding
 import com.google.android.material.animation.AnimationUtils
 import android.view.animation.Animation
+import com.example.pjt114.stocka.MainActivity
+import com.example.pjt114.stocka.viewmodel.SharedViewModel
 
 
 class ProductsFragment : Fragment() {
 
     private var binding: FragmentProductsBinding? = null
     private lateinit var productAdapter: ProductAdapter
+    lateinit var viewModel: SharedViewModel
 
     var closed = false
     val add =binding?.add
@@ -37,6 +40,7 @@ class ProductsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        viewModel = (activity as MainActivity).viewModel
 
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentProductsBinding.inflate(inflater, container, false)
@@ -48,9 +52,16 @@ class ProductsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         productAdapter = ProductAdapter()
 
-        productAdapter.differ.submitList(DataSource().loadProducts())
+//        productAdapter.differ.submitList(DataSource().loadProducts())
         binding?.productItemRecyclerView?.adapter = productAdapter
         binding?.productItemRecyclerView?.layoutManager = LinearLayoutManager(activity)
+
+        viewModel.getAllProducts().observe(viewLifecycleOwner,{
+            productAdapter.differ.submitList(it)
+            productAdapter.notifyDataSetChanged()
+        })
+
+
 
         productAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
@@ -65,6 +76,7 @@ class ProductsFragment : Fragment() {
         //set the add fab on click listener
         binding?.add?.setOnClickListener {
             OnAddButtonClick()
+            findNavController().navigate(R.id.action_productsFragment_to_productEditFragment)
         }
         //set the edit fab on click listener
         edit?.setOnClickListener {
