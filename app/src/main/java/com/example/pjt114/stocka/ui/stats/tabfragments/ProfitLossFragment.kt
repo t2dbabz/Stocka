@@ -137,7 +137,6 @@ class ProfitLossFragment : Fragment() {
         }
 
         viewModel.modifiedMonthQuery.observe(viewLifecycleOwner, {
-            println(it)
             binding?.modifyMonthTextView?.text = it
         })
     }

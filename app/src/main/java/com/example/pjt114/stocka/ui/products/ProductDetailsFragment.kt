@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.databinding.FragmentProductDetailsBinding
 import com.example.pjt114.stocka.model.ProductItem
@@ -36,8 +38,6 @@ class ProductDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         val bundle = arguments
         if (bundle == null) {
             Log.e("Product", "ProductDetailsFragment did not receive product information")
@@ -45,10 +45,14 @@ class ProductDetailsFragment : Fragment() {
         }
         val args = ProductDetailsFragmentArgs.fromBundle(bundle)
 
-       // binding?.productDetailImageImageView?.setImageResource(args.productItem.productImage)
+        val imageView =  binding?.productDetailImageImageView
+        val imageByteArray = Base64.decode(args.productItem.productImage, Base64.DEFAULT)
+        Glide.with(imageView!!.context).load(imageByteArray).placeholder(R.drawable.add_image_placeholder).into(imageView)
+
         binding?.productDetailNameTextView?.text = args.productItem.name
         binding?.productDetailPriceTextView?.text =
             getString(R.string.product_detail_price, args.productItem.sellingPrice.toString() )
+
         binding?.productDetailQuantityTextVIew?.text = args.productItem.quantity.toString()
         binding?.productDetailTotalTextView?.text =
             getString(R.string.product_detail_total_price, totalPriceOfProduct(args.productItem) )

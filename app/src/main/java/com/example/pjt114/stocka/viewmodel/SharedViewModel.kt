@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pjt114.stocka.model.Expense
+import com.example.pjt114.stocka.model.ProductItem
 import com.example.pjt114.stocka.model.User
 import com.example.pjt114.stocka.repository.AppRepository
 import kotlinx.coroutines.CoroutineScope
@@ -21,11 +22,17 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     var password : String = ""
     var expenseCategory : String = ""
 
+    var productImageBase64 : String? = ""
+    private val _productType = MutableLiveData<String>()
+    val productType: LiveData<String> = _productType
+
+
     private val _modifiedMonthQuery = MutableLiveData<String>()
     val modifiedMonthQuery: LiveData<String> = _modifiedMonthQuery
 
     init {
         getUser()
+        getAllProducts()
     }
 
     fun saveFullName(name:String){
@@ -67,6 +74,23 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     }
 
 
+    fun saveProductImageString(base64String: String?){
+        productImageBase64 = base64String
+    }
+
+    fun setProductTypeOthers(){
+        _productType.value = "Others"
+    }
+
+    fun setProductTypeProvisions(){
+        _productType.value = "Provisions"
+    }
+
+    fun setProductTypeKitchen(){
+         _productType.value = "Kitchen"
+    }
+
+
 
 
 
@@ -94,6 +118,12 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
 
     fun deleteExpense(expense: Expense) = CoroutineScope(Dispatchers.IO).launch {
         appRepository.deleteExpense(expense)
+    }
+
+    fun getAllProducts() = appRepository.getAllProducts()
+
+    fun insertNewProduct(productItem: ProductItem) = CoroutineScope(Dispatchers.IO).launch {
+        appRepository.insertNewProduct(productItem)
     }
 
 

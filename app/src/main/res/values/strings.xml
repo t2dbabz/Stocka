@@ -20,7 +20,7 @@
     <string name="intial_count_value">0</string>
     <string name="product_detail_price">\u20A6%1$s</string>
     <string name="product_detail_total_price">\u20A6%1$s</string>
-    <string name="home_total_sales">\u20A684,000</string>
+    <string name="home_total_sales">\u20A6 0</string>
 
     <string-array name="expense_category">
         <item>Bills</item>

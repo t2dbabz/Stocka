@@ -15,7 +15,7 @@
             android:id="@+id/product_item_imageView"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:src="@drawable/indomitables_chicken_70g"
+            android:src="@drawable/add_image_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

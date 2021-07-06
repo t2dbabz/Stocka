@@ -2,6 +2,7 @@ package com.example.pjt114.stocka.repository
 
 import com.example.pjt114.stocka.db.AppDatabase
 import com.example.pjt114.stocka.model.Expense
+import com.example.pjt114.stocka.model.ProductItem
 import com.example.pjt114.stocka.model.User
 
 class AppRepository(private val db: AppDatabase) {
@@ -12,5 +13,8 @@ class AppRepository(private val db: AppDatabase) {
     suspend fun insertNewExpense(expense: Expense) = db.getExpenseDao().insertExpense(expense)
 
     suspend fun deleteExpense(expense: Expense) = db.getExpenseDao().deleteExpense(expense)
+
+    fun getAllProducts() =db.getProductDao().getAllProductDetails()
+    suspend fun insertNewProduct(productItem: ProductItem )= db.getProductDao().insertProductData(productItem)
 
 }
