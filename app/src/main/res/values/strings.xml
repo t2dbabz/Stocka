@@ -21,9 +21,6 @@
     <string name="product_detail_price">\u20A6%1$s</string>
     <string name="product_detail_total_price">\u20A6%1$s</string>
     <string name="home_total_sales">\u20A684,000</string>
-    <string name="welcome">Welcome,</string>
-    <string name="mr_tunde">Mr Tunde</string>
-    <string name="next">next</string>
 
     <string-array name="expense_category">
         <item>Bills</item>

@@ -1,16 +1,24 @@
 package com.example.pjt114.stocka.ui.products
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.adapter.ProductAdapter
 import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.FragmentProductsBinding
+import com.google.android.material.animation.AnimationUtils
+import android.view.animation.Animation
 
 
 class ProductsFragment : Fragment() {
@@ -18,10 +26,10 @@ class ProductsFragment : Fragment() {
     private var binding: FragmentProductsBinding? = null
     private lateinit var productAdapter: ProductAdapter
 
-    private var closed = false
+    var closed = false
     val add =binding?.add
-    private val edit=binding?.editF
-    private val settings = binding?.settingF
+    val edit=binding?.editF
+    val settings = binding?.settingF
 
 
     override fun onCreateView(
@@ -56,7 +64,7 @@ class ProductsFragment : Fragment() {
 
         //set the add fab on click listener
         binding?.add?.setOnClickListener {
-            onAddButtonClick()
+            OnAddButtonClick()
         }
         //set the edit fab on click listener
         edit?.setOnClickListener {
@@ -67,7 +75,14 @@ class ProductsFragment : Fragment() {
 
         }
     }
-    private fun onAddButtonClick() {
+
+    private fun ActionBar.setTitleColor(color: Int) {
+        val text = SpannableString(title ?: "")
+        text.setSpan(ForegroundColorSpan(color),0,text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        title = text
+    }
+
+    private fun OnAddButtonClick() {
         setVisibility(closed)
         setAnimation(closed)
         closed = !closed
@@ -75,15 +90,15 @@ class ProductsFragment : Fragment() {
 
     // A Function used to set the Animation effect
     private fun setAnimation(closed:Boolean) {
-//        if(!closed){
+        if(!closed){
 //            edit?.startAnimation(fromBottom)
 //            settings?.startAnimation(fromBottom)
 //            add?.startAnimation(rotateOpen)
-//        }else{
+        }else{
 //            edit?.startAnimation(toBottom)
 //            settings?.startAnimation(toBottom)
 //            add?.startAnimation(rotateClose)
-//        }
+        }
     }
     // used to set visibility to VISIBLE / INVISIBLE
     private fun setVisibility(closed:Boolean) {

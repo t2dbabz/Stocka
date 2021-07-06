@@ -72,9 +72,6 @@
         <action
             android:id="@+id/action_homeFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
-        <argument
-            android:name="display"
-            app:argType="com.example.pjt114.stocka.model.User" />
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
@@ -111,9 +108,6 @@
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <argument
-            android:name="display"
-            app:argType="com.example.pjt114.stocka.model.User" />
     </fragment>
     <fragment
         android:id="@+id/productUpdateFragment"
