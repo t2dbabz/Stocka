@@ -12,7 +12,7 @@ class DataSource (){
                 sellingPrice = 150.0,
                 buyingPrice = 100.0,
                 quantity = 500,
-                productImage = R.drawable.indomitables_chicken_70g,
+                //productImage = R.drawable.indomitables_chicken_70g,
                 barcode = "089686130010"
             ),
 
@@ -21,7 +21,7 @@ class DataSource (){
                 sellingPrice = 50.0,
                 buyingPrice = 40.0,
                 quantity = 250,
-                productImage = R.drawable.cocopops,
+               // productImage = R.drawable.cocopops,
                 barcode = "6154000101282"
 
             ),
@@ -31,7 +31,7 @@ class DataSource (){
                 sellingPrice = 60.0,
                 buyingPrice = 55.0,
                 quantity = 200,
-                productImage = R.drawable.fullcream_sachet_20g,
+              //  productImage = R.drawable.fullcream_sachet_20g,
                 barcode = "8716200449304"
 
             ),
@@ -41,7 +41,7 @@ class DataSource (){
                 sellingPrice = 50.0,
                 buyingPrice = 40.0,
                 quantity = 300,
-                productImage = R.drawable.milo_sachet_20g,
+              //  productImage = R.drawable.milo_sachet_20g,
                 barcode = "6151100032379"
 
             ),
@@ -50,7 +50,7 @@ class DataSource (){
                 sellingPrice = 150.0,
                 buyingPrice = 100.0,
                 quantity = 500,
-                productImage = R.drawable.indomitables_chicken_70g,
+              //  productImage = R.drawable.indomitables_chicken_70g,
                 barcode = "089686130010"
             ),
 
@@ -59,7 +59,7 @@ class DataSource (){
                 sellingPrice = 50.0,
                 buyingPrice = 40.0,
                 quantity = 250,
-                productImage = R.drawable.cocopops,
+             //   productImage = R.drawable.cocopops,
                 barcode = "6154000101282"
 
             ),
@@ -69,7 +69,7 @@ class DataSource (){
                 sellingPrice = 60.0,
                 buyingPrice = 55.0,
                 quantity = 200,
-                productImage = R.drawable.fullcream_sachet_20g,
+              //  productImage = R.drawable.fullcream_sachet_20g,
                 barcode = "8716200449304"
 
             ),
@@ -79,7 +79,7 @@ class DataSource (){
                 sellingPrice = 50.0,
                 buyingPrice = 40.0,
                 quantity = 300,
-                productImage = R.drawable.milo_sachet_20g,
+              //  productImage = R.drawable.milo_sachet_20g,
                 barcode = "6151100032379"
 
             ),

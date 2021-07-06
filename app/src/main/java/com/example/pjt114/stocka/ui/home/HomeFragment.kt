@@ -13,15 +13,18 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pjt114.stocka.MainActivity
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.adapter.ProductAdapter
 import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.FragmentHomeBinding
+import com.example.pjt114.stocka.viewmodel.SharedViewModel
 
 
 class HomeFragment : Fragment() {
     private var binding: FragmentHomeBinding? = null
     private lateinit var productAdapter: ProductAdapter
+    lateinit var viewModel: SharedViewModel
 
 
     override fun onCreateView(
@@ -29,6 +32,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        viewModel = (activity as MainActivity).viewModel
         (activity as AppCompatActivity).supportActionBar?.show()
         (activity as AppCompatActivity).supportActionBar?.setTitleColor(Color.BLACK)
 
@@ -48,9 +52,15 @@ class HomeFragment : Fragment() {
 
         productAdapter = ProductAdapter()
 
-        productAdapter.differ.submitList(DataSource().loadProducts())
+       // productAdapter.differ.submitList(DataSource().loadProducts())
         binding?.homeFragmentRecyclerView?.adapter = productAdapter
         binding?.homeFragmentRecyclerView?.layoutManager = LinearLayoutManager(activity)
+
+        viewModel.getAllProducts().observe(viewLifecycleOwner,{
+            productAdapter.differ.submitList(it)
+            productAdapter.notifyDataSetChanged()
+        })
+
 
         productAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {

@@ -16,6 +16,8 @@
     <color name="red">#F72929</color>
     <color name="medium_gray">#DEDEDE</color>
     <color name="dark_gray">#858585</color>
+    <color name="bottomSheetTitleBac">#EDF0F6</color>
+    <color name="textColor">#566575</color>
 </resources>
 
 

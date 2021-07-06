@@ -105,7 +105,7 @@ class QuickScanFragment : Fragment() {
                 binding?.bottomSheet?.quickScanProductQuantityTextView?.text =
                     getString(R.string.quick_scan_qty, productList[item].quantity.toString())
 
-                binding?.bottomSheet?.quickScanProductImageView?.setImageResource(productList[item].productImage)
+               // binding?.bottomSheet?.quickScanProductImageView?.setImageResource(productList[item].productImage)
             }
         }
     }

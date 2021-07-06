@@ -22,31 +22,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="35dp">
 
                 <TextView
+                    android:id="@+id/modifyMonth_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_10"
-                    android:background="@color/yellow"
-                    android:text="Today, 25 June" />
+                    android:layout_margin="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Today, July 7"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <Spinner
+                    android:id="@+id/modifyMonth_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="200dp"
-                    android:background="@color/yellow"
-                    android:text="Modify" />
-            </LinearLayout>
+                    android:layout_margin="8dp"
+                    android:entries="@array/profit_loss_months_filters"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                 android:id="@+id/aa_chartView_purchases"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_20" />
+                android:layout_marginTop="35dp" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
