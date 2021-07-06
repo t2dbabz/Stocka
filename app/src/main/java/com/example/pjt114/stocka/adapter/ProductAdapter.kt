@@ -21,7 +21,7 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>
 
             fun bindItem(productItem: ProductItem){
                 binding.productItemNameTextView.text = productItem.name
-                binding.productItemImageView.setImageResource(productItem.productImage)
+               // binding.productItemImageView.setImageResource(productItem.productImage)
                 binding.productItemQuantityTextView.text =
                     itemView.context.getString(R.string.product_qty, productItem.quantity.toString())
                 binding.productItemSellingPriceTextView.text =

@@ -3,17 +3,19 @@ package com.example.pjt114.stocka.db
 import android.content.Context
 import androidx.room.*
 import com.example.pjt114.stocka.model.Expense
+import com.example.pjt114.stocka.model.ProductItem
 import com.example.pjt114.stocka.model.User
 
 @Database(
-    version = 2,
-    entities = [User::class, Expense::class],
+    version = 4,
+    entities = [User::class, Expense::class, ProductItem::class],
    exportSchema = true
 )
 abstract class AppDatabase:RoomDatabase() {
 
     abstract fun getUserDao(): UserDao
     abstract fun getExpenseDao(): ExpenseDao
+    abstract fun getProductDao(): ProductDao
 
     companion object{
         @Volatile

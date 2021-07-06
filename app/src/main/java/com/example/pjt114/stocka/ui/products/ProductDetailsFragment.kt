@@ -45,7 +45,7 @@ class ProductDetailsFragment : Fragment() {
         }
         val args = ProductDetailsFragmentArgs.fromBundle(bundle)
 
-        binding?.productDetailImageImageView?.setImageResource(args.productItem.productImage)
+       // binding?.productDetailImageImageView?.setImageResource(args.productItem.productImage)
         binding?.productDetailNameTextView?.text = args.productItem.name
         binding?.productDetailPriceTextView?.text =
             getString(R.string.product_detail_price, args.productItem.sellingPrice.toString() )

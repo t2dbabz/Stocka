@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,51 +8,65 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/productDetailImage_imageView"
             android:layout_width="0dp"
-            android:layout_height="206dp"
+            android:layout_height="150dp"
             android:layout_marginStart="62dp"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="62dp"
             android:src="@drawable/indomitables_chicken_70g"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/productDetailName_textView"
+            android:id="@+id/productNameTitle_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="104dp"
-            tools:text="Indomie Garlic Noodles"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="32dp"
+            android:text="Product Name"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productDetailImage_imageView" />
+            app:layout_constraintTop_toBottomOf="@id/productDetailImage_imageView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/productName_textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="62dp"
+            app:layout_constraintBottom_toBottomOf="@+id/productNameTitle_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/productNameTitle_textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/productName_editText"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/buyingPrice_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="36dp"
             android:text="Buying Price"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productDetailName_textView" />
+            app:layout_constraintTop_toBottomOf="@+id/productName_textField" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/buyingPrice_textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="62dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintBottom_toBottomOf="@+id/buyingPrice_textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/buyingPrice_textView">
@@ -77,10 +91,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/sellingPrice_textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="@+id/buyingPrice_textField"
             app:layout_constraintTop_toBottomOf="@+id/buyingPrice_textField">
 
@@ -103,19 +117,83 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/productQuantityEdit_textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="@+id/sellingPrice_textField"
             app:layout_constraintTop_toBottomOf="@+id/sellingPrice_textField">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/productQuantityEdit_editText"
-            android:layout_width="176dp"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/productQuantityEdit_editText"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/productBarcode_title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Product Barcode"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/productBarcodeEdit_textField"
+            app:layout_constraintStart_toStartOf="@+id/quantity_title_textView"
+            app:layout_constraintTop_toTopOf="@+id/productBarcodeEdit_textField" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/productBarcodeEdit_textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/productQuantityEdit_textField"
+            app:layout_constraintTop_toBottomOf="@+id/productQuantityEdit_textField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/productBarcodeEdit_editText"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/productType_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Type"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/productType_spinner"
+            app:layout_constraintStart_toStartOf="@+id/productBarcode_title_textView"
+            app:layout_constraintTop_toTopOf="@+id/productType_spinner"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/productType_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="84dp"
+            android:entries="@array/expense_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productBarcodeEdit_textField" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addNewProduct_button"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/yellow"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="Add Product"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productType_spinner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</ScrollView>
