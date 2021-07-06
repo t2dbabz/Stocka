@@ -35,11 +35,11 @@
             android:id="@+id/notification_icon"
             android:layout_width="22dp"
             android:layout_height="19dp"
-            android:layout_marginTop="66dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="28dp"
             android:src="@drawable/ic_notifications_24"
+            app:layout_constraintBottom_toBottomOf="@+id/username_textView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/username_textView" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/salesOverview_cardView"

@@ -1,5 +1,7 @@
 package com.example.pjt114.stocka.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pjt114.stocka.model.Expense
@@ -18,6 +20,9 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     var userName: String =""
     var password : String = ""
     var expenseCategory : String = ""
+
+    private val _modifiedMonthQuery = MutableLiveData<String>()
+    val modifiedMonthQuery: LiveData<String> = _modifiedMonthQuery
 
     init {
         getUser()
@@ -48,6 +53,32 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     fun saveExpenseCategory(tag: String){
         expenseCategory = tag
     }
+
+    fun profitAndLossJanApr(){
+        _modifiedMonthQuery.value = "January - April"
+    }
+
+    fun profitAndLossMayAug(){
+        _modifiedMonthQuery.value = "May - August"
+    }
+
+    fun profitAndLossSepDec(){
+        _modifiedMonthQuery.value = "September - December"
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     fun getUser() = appRepository.getUsers()
 

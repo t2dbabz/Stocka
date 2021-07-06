@@ -6,107 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".ui.stats.tabfragments.ExpenseDetailFragment">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/expenseNameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/expenseNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Name"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/expenseDetailName_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Electricity"
-        app:layout_constraintStart_toStartOf="@+id/expenseNameTitle"
-        app:layout_constraintTop_toBottomOf="@+id/expenseNameTitle" />
+        <TextView
+            android:id="@+id/expenseDetailName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:text="Electricity"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/expenseNameTitle"
+            app:layout_constraintTop_toBottomOf="@+id/expenseNameTitle" />
 
-    <TextView
-        android:id="@+id/expenseAmountTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Amount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenseDetailName_textView" />
+        <TextView
+            android:id="@+id/expenseAmountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Amount"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expenseDetailName_textView" />
 
-    <TextView
-        android:id="@+id/expenseDetailAmount_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="N24,000"
-        app:layout_constraintStart_toStartOf="@+id/expenseAmountTitle"
-        app:layout_constraintTop_toBottomOf="@+id/expenseAmountTitle" />
+        <TextView
+            android:id="@+id/expenseDetailAmount_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:text="N24,000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/expenseAmountTitle"
+            app:layout_constraintTop_toBottomOf="@+id/expenseAmountTitle" />
 
-    <TextView
-        android:id="@+id/expenseTagTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Tag"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenseDetailAmount_textView" />
+        <TextView
+            android:id="@+id/expenseTagTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Tag"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expenseDetailAmount_textView" />
 
-    <TextView
-        android:id="@+id/expenseDetailTag_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Bills"
-        app:layout_constraintStart_toStartOf="@+id/expenseTagTitle"
-        app:layout_constraintTop_toBottomOf="@+id/expenseTagTitle" />
+        <TextView
+            android:id="@+id/expenseDetailTag_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:text="Bills"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/expenseTagTitle"
+            app:layout_constraintTop_toBottomOf="@+id/expenseTagTitle" />
 
-    <TextView
-        android:id="@+id/expenseNoteTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Note"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenseDetailTag_textView" />
+        <TextView
+            android:id="@+id/expenseNoteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Note"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expenseDetailTag_textView" />
 
-    <TextView
-        android:id="@+id/expenseNote_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Expense Note"
-        app:layout_constraintStart_toStartOf="@+id/expenseNoteTitle"
-        app:layout_constraintTop_toBottomOf="@+id/expenseNoteTitle" />
-
-
-    <TextView
-        android:id="@+id/expenseDateTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenseNote_textView" />
-
-    <TextView
-        android:id="@+id/expenseDate_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="10/7/2021"
-        app:layout_constraintStart_toStartOf="@+id/expenseDateTitle"
-        app:layout_constraintTop_toBottomOf="@+id/expenseDateTitle" />
+        <TextView
+            android:id="@+id/expenseNote_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:text="Expense Note"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/expenseNoteTitle"
+            app:layout_constraintTop_toBottomOf="@+id/expenseNoteTitle" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/expenseDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Date"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/expenseNote_textView" />
+
+        <TextView
+            android:id="@+id/expenseDate_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:text="10/7/2021"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/expenseDateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/expenseDateTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

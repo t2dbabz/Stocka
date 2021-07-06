@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="profit_loss_months_filters">
+        <item>Jan - Apr</item>
+        <item>May -Aug</item>
+        <item>Sep - Dec</item>
+    </string-array>
+</resources>
