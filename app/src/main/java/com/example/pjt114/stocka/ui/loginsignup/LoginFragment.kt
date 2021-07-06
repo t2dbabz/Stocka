@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.pjt114.stocka.MainActivity
 import com.example.pjt114.stocka.R
@@ -57,9 +56,7 @@ class LoginFragment : Fragment() {
                 for (i in user.indices) {
                     if (user[i].userName == binding?.usernameEditTextField?.text.toString().trim()) {
                                 if (user[i].password == binding?.passwordEditTextField?.text.toString().trim()) {
-                                    val display = user[i].userName
-                                    val bundle = bundleOf("display" to display)
-                                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment, bundle)
+                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(
                                 context,
