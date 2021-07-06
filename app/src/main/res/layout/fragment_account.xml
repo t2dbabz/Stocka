@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/mp_ventures"
             android:textAppearance="@style/mp_ventures"
             android:layout_marginStart="18dp"
             app:layout_constraintBottom_toBottomOf="parent"/>

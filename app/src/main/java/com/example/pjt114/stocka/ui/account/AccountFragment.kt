@@ -1,5 +1,6 @@
 package com.example.pjt114.stocka.ui.account
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -50,8 +51,8 @@ class AccountFragment : Fragment() {
         }
 
         val profile =binding?.profileName
-        profile?.text = arguments?.getString("display")
-        if(profile?.text == null){
+        profile?.text = getUserDetails()
+        if(profile?.text != null){
             binding?.verified?.visibility = View.VISIBLE
         }
     }
@@ -60,6 +61,11 @@ class AccountFragment : Fragment() {
         val text = SpannableString(title ?: "")
         text.setSpan(ForegroundColorSpan(color),0,text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         title = text
+    }
+
+    private fun getUserDetails(): String?{
+        val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
+        return sharedPref.getString("userName", "Username")
     }
 
 

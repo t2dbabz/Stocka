@@ -1,5 +1,6 @@
 package com.example.pjt114.stocka.ui.home
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
     ): View {
 
         viewModel = (activity as MainActivity).viewModel
-
+        (activity as AppCompatActivity).supportActionBar?.show()
 
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -62,7 +63,7 @@ class HomeFragment : Fragment() {
         })
 
         val user = binding?.usernameTextView
-        user?.text = arguments?.getString("display")
+        user?.text = getString(R.string.welcome_text, getUserDetails())
 
 
         productAdapter.setOnItemClickListener {
@@ -120,7 +121,7 @@ class HomeFragment : Fragment() {
         return format.format(this).toString()
     }
 
-    fun quickAction(){
+    private fun quickAction(){
         binding?.addProductCardView?.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_productEditFragment)
         }
@@ -128,6 +129,11 @@ class HomeFragment : Fragment() {
         binding?.sellProductCardView?.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_quickScanFragment)
         }
+    }
+
+    private fun getUserDetails(): String?{
+        val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
+        return sharedPref.getString("fullName", "User")
     }
 
 }
