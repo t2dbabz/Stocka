@@ -124,43 +124,56 @@
         app:srcCompat="@drawable/ic_create_item" />
 
     <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:singleSelection="true"
+        android:layout_marginStart="24dp"
         app:layout_constraintBottom_toTopOf="@+id/productItem_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar_cardView">
+        app:layout_constraintTop_toBottomOf="@+id/searchBar_cardView"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/allProducts_chip"
-            android:text="All Products "
             style="@style/CustomChipStyle"
-            android:checked="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="All Products " />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/provisions_chip"
-            android:text="Provisions"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Provisions" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/kitchen_chip"
-            android:text="Kitchen"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Kitchen" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/others_chip"
-            android:text="Others"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Others" />
     </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/emptyStateProduct_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="20sp"
+        android:text="Add New Product To Your Inventory"
+        app:layout_constraintBottom_toBottomOf="@+id/productItem_recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/productItem_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/productItem_recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

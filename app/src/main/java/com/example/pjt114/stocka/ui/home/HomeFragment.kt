@@ -22,6 +22,7 @@ import com.example.pjt114.stocka.databinding.FragmentHomeBinding
 import com.example.pjt114.stocka.viewmodel.SharedViewModel
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -51,6 +52,7 @@ class HomeFragment : Fragment() {
 
         salesOverView()
         quickAction()
+        getTodayDate()
 
 
         productAdapter = ProductAdapter()
@@ -58,8 +60,17 @@ class HomeFragment : Fragment() {
         binding?.homeFragmentRecyclerView?.layoutManager = LinearLayoutManager(activity)
 
         viewModel.getAllProducts().observe(viewLifecycleOwner,{
+
+       if (it.isNotEmpty()){
+           binding?.emptyStateTextView?.visibility = View.GONE
+       }else{
+           binding?.emptyStateTextView?.visibility = View.VISIBLE
+       }
+
             productAdapter.differ.submitList(it)
             productAdapter.notifyDataSetChanged()
+
+
         })
 
         val user = binding?.usernameTextView
@@ -108,7 +119,6 @@ class HomeFragment : Fragment() {
 
                 totalSalesAMount += sellingPrice * quantitySold
             }
-
             val currency=(totalSalesAMount.toDouble()).convert()
             binding?.salesOverview?.totalSalesAmountTextView?.text = getString(R.string.home_total_sales, currency)
         })
@@ -135,5 +145,13 @@ class HomeFragment : Fragment() {
         val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
         return sharedPref.getString("fullName", "User")
     }
+
+    fun getTodayDate(){
+        val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+            val string = formatter.format(calendar.time)
+        binding?.overViewDateTextView?.text = getString(R.string.todays_date_text, string)
+    }
+
 
 }
