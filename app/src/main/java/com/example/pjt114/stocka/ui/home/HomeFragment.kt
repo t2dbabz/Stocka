@@ -61,6 +61,9 @@ class HomeFragment : Fragment() {
             productAdapter.notifyDataSetChanged()
         })
 
+        val user = binding?.usernameTextView
+        user?.text = arguments?.getString("display")
+
 
         productAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
