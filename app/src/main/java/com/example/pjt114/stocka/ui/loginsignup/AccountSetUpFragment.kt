@@ -1,5 +1,6 @@
 package com.example.pjt114.stocka.ui.loginsignup
 
+import android.content.Context
 import android.os.Bundle
 import android.os.UserHandle
 import android.text.Editable
@@ -77,11 +78,12 @@ class AccountSetUpFragment : Fragment() {
                 password = viewModel.password
             )
 
+            userDetails()
             viewModel.insertNewUser(user)
             Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
+            signUpCompleted()
             findNavController().navigate(R.id.action_accountSetUpFragment_to_loginFragment)
         }
-
     }
 
     private fun isValidate(): Boolean =
@@ -185,6 +187,19 @@ class AccountSetUpFragment : Fragment() {
         }
     }
 
+    fun signUpCompleted(){
+        val sharedPref = requireActivity().getSharedPreferences("signUpDone", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("SignUpComplete", true)
+        editor.apply()
+    }
 
+    fun userDetails(){
+        val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("fullName", viewModel.fullName)
+        editor.putString("userName", viewModel.userName)
+        editor.apply()
+    }
 
 }

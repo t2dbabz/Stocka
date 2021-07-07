@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="114dp"
-            android:text="Welcome, Mr Tunde"
+            android:text="@string/welcome_text"
             android:textSize="21sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/notification_icon"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="Today, 13 June"
+                    android:text="@string/todays_date_text"
                     android:textSize="11sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -267,6 +267,19 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/product_item_layout"
         app:layout_constraintTop_toBottomOf="@+id/topSellingProducts_textView" />
+
+    <TextView
+        android:id="@+id/emptyState_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:text="@string/emptyStateTextView_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/homeFragment_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/homeFragment_recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/homeFragment_recyclerView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

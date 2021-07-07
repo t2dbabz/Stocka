@@ -53,6 +53,11 @@ class ExpensesFragment : Fragment() {
         binding?.expenseRecyclerView?.layoutManager = LinearLayoutManager(activity)
 
         viewModel.getExpenses().observe(viewLifecycleOwner, {
+            if (it.isNotEmpty()){
+                binding?.emptyStateExpenseTextView?.visibility = View.GONE
+            }else{
+                binding?.emptyStateExpenseTextView?.visibility = View.VISIBLE
+            }
             expenseAdapter.differ.submitList(it)
             expenseAdapter.notifyDataSetChanged()
         })

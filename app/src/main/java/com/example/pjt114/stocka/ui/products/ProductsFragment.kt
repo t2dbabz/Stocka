@@ -57,6 +57,12 @@ class ProductsFragment : Fragment() {
         binding?.productItemRecyclerView?.layoutManager = LinearLayoutManager(activity)
 
         viewModel.getAllProducts().observe(viewLifecycleOwner,{
+
+            if (it.isNotEmpty()){
+                binding?.emptyStateProductTextView?.visibility = View.GONE
+            }else{
+                binding?.emptyStateProductTextView?.visibility = View.VISIBLE
+            }
             productAdapter.differ.submitList(it)
             productAdapter.notifyDataSetChanged()
         })

@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.databinding.FragmentProductDetailsBinding
 import com.example.pjt114.stocka.model.ProductItem
+import java.text.DecimalFormat
 
 
 class ProductDetailsFragment : Fragment() {
@@ -54,6 +55,7 @@ class ProductDetailsFragment : Fragment() {
             getString(R.string.product_detail_price, args.productItem.sellingPrice.toString() )
 
         binding?.productDetailQuantityTextVIew?.text = args.productItem.quantity.toString()
+        binding?.quantitySoldAmountTextView?.text = args.productItem.quantitySold.toString()
         binding?.productDetailTotalTextView?.text =
             getString(R.string.product_detail_total_price, totalPriceOfProduct(args.productItem) )
 
@@ -64,7 +66,9 @@ class ProductDetailsFragment : Fragment() {
         val quantity = productItem.quantity
 
         val total = price * quantity
-        return  total.toString()
+        val currency=(total).convert()
+
+        return  currency.toString()
     }
 
     private fun ActionBar.setTitleColor(color: Int) {
@@ -73,6 +77,11 @@ class ProductDetailsFragment : Fragment() {
         title = text
     }
 
+    fun Double.convert(): String {
+        val format = DecimalFormat("#,###.00")
+        format.isDecimalSeparatorAlwaysShown = false
+        return format.format(this).toString()
+    }
 
 
 

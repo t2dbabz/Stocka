@@ -26,11 +26,14 @@ class SplashScreenFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         activityScope.launch {
-            if (onBoardingFinished()) {
-                delay(3000)
+            if (onBoardingFinished() && hasUserSignUp() ) {
+                delay(2000)
+                findNavController().navigate(R.id.action_splashScreenFragment_to_loginFragment)
+            } else if (onBoardingFinished() && !hasUserSignUp()){
+                delay(2000)
                 findNavController().navigate(R.id.action_splashScreenFragment_to_signUpFragment)
-            } else {
-
+            } else{
+                delay(3000)
                 findNavController().navigate(R.id.action_splashScreenFragment_to_viewPagerFragment)
             }
 
@@ -48,6 +51,11 @@ class SplashScreenFragment : Fragment() {
     private fun onBoardingFinished(): Boolean {
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         return sharedPref.getBoolean("Finished", false)
+    }
+
+    private fun hasUserSignUp(): Boolean{
+        val sharedPref = requireActivity().getSharedPreferences("signUpDone", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("SignUpComplete", false)
     }
 
 
