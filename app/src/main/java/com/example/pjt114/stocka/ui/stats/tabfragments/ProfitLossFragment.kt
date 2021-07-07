@@ -17,11 +17,13 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
+import java.util.*
 
 
 class ProfitLossFragment : Fragment() {
     lateinit var viewModel: SharedViewModel
     private var binding: FragmentProfitLossBinding? = null
+    var saleslist = mutableListOf<Any>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +42,12 @@ class ProfitLossFragment : Fragment() {
 
             setUpProfitLossChart()
             setUpSpinner()
+
+
     }
 
     fun setUpProfitLossChart(){
+
 
         val aaChartView = binding?.aaChartView1
 
@@ -50,17 +55,17 @@ class ProfitLossFragment : Fragment() {
             .chartType(AAChartType.Spline)
             .backgroundColor("#FFFFFFFF")
             .title("Sales")
-            .categories(arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun"))
+            .categories(arrayOf("May", "Jun", "July", "Aug"))
             .dataLabelsEnabled(false)
             .series(arrayOf(
                 AASeriesElement()
                     .name("Total Sales")
                     .color("#00D47B")
-                    .data(arrayOf(12.0, 6.9, 9.5, 14.5)),
+                    .data(arrayOf(3500, 2000, 4000, 5000)),
                 AASeriesElement()
                     .name("Total Purchases")
                     .color("#F59300")
-                    .data(arrayOf(8.0, 5.8, 6.7, 11.3)),
+                    .data(arrayOf(2000, 1500, 300, 4000)),
                 )
             )
 

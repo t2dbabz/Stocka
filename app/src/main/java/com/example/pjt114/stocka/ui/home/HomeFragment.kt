@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
         binding?.homeFragmentRecyclerView?.adapter = productAdapter
         binding?.homeFragmentRecyclerView?.layoutManager = LinearLayoutManager(activity)
 
-        viewModel.getAllProducts().observe(viewLifecycleOwner,{
+        viewModel.getAllProductByMostQtySold().observe(viewLifecycleOwner,{
 
        if (it.isNotEmpty()){
            binding?.emptyStateTextView?.visibility = View.GONE

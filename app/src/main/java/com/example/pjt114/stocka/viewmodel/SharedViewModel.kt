@@ -132,6 +132,13 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     fun getAllProductQuantity() = appRepository.getAllProductQuantity()
     fun getAllProductQuantitySold() = appRepository.getAllProductQuantitySold()
     fun getTotalSales() = appRepository.getTotalSales()
+    fun getAllProductType(productType: String) = appRepository.getProductType(productType)
+    fun getAllProductByMostQtySold() = appRepository.getAllProductsByMostSold()
+
+    fun deleteProduct(productItem: ProductItem) = CoroutineScope(Dispatchers.IO).launch {
+        appRepository.deleteProduct(productItem)
+    }
+
 
 
 }
