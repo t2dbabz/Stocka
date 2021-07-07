@@ -17,4 +17,8 @@ class AppRepository(private val db: AppDatabase) {
     fun getAllProducts() =db.getProductDao().getAllProductDetails()
     suspend fun insertNewProduct(productItem: ProductItem )= db.getProductDao().insertProductData(productItem)
 
+    fun getAllProductQuantity() = db.getProductDao().getAllProductQuantity()
+    fun getAllProductQuantitySold() = db.getProductDao().getAllProductQuantitySold()
+    fun getTotalSales() = db.getProductDao().getTotalSales()
+
 }

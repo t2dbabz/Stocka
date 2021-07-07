@@ -17,7 +17,7 @@
             android:layout_marginStart="62dp"
             android:layout_marginTop="58dp"
             android:layout_marginEnd="62dp"
-            android:src="@drawable/indomitables_chicken_70g"
+            tools:src="@drawable/indomitables_chicken_70g"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +31,8 @@
             android:layout_marginTop="35dp"
             android:layout_marginEnd="104dp"
             tools:text="Indomie Garlic Noodles"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +43,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="29dp"
-            android:layout_marginTop="33dp"
-            android:textSize="15sp"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:text="Quantity"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productDetailName_textView" />
 
@@ -54,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             tools:text="66"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/quantity_title"
@@ -77,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:text="Price"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/quantity_title"
@@ -88,6 +91,7 @@
             android:layout_height="19dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:text="Total"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/divider1"
@@ -98,6 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:text="@string/product_detail_price"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -113,6 +118,7 @@
             android:layout_marginTop="12dp"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:text="@string/product_detail_total_price"
             app:layout_constraintEnd_toEndOf="@+id/totalTitle_textView"
             app:layout_constraintStart_toStartOf="@+id/totalTitle_textView"
@@ -141,6 +147,30 @@
             android:src="@drawable/ic_scanner_image_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/quantitySold_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="28dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Quantity Sold"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productDetailName_textView" />
+
+        <TextView
+            android:id="@+id/quantitySoldAmount_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:text="20"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/quantitySold_title"
+            app:layout_constraintTop_toBottomOf="@+id/quantitySold_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

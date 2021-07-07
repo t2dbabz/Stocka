@@ -27,6 +27,8 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     val productType: LiveData<String> = _productType
 
 
+
+
     private val _modifiedMonthQuery = MutableLiveData<String>()
     val modifiedMonthQuery: LiveData<String> = _modifiedMonthQuery
 
@@ -104,6 +106,7 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
 
 
 
+
     fun getUser() = appRepository.getUsers()
 
    fun insertNewUser(user: User) = viewModelScope.launch {
@@ -125,6 +128,10 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
     fun insertNewProduct(productItem: ProductItem) = CoroutineScope(Dispatchers.IO).launch {
         appRepository.insertNewProduct(productItem)
     }
+
+    fun getAllProductQuantity() = appRepository.getAllProductQuantity()
+    fun getAllProductQuantitySold() = appRepository.getAllProductQuantitySold()
+    fun getTotalSales() = appRepository.getTotalSales()
 
 
 }
