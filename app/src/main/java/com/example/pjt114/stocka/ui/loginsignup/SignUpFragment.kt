@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -46,6 +47,8 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
 
+        setupIndustryAutoComplete()
+
         binding?.continueButton?.setOnClickListener {
             hasCompletedSignUpData()
         }
@@ -60,19 +63,27 @@ class SignUpFragment : Fragment() {
             viewModel.saveFullName(binding?.fullNameEditTextField?.text.toString().trim())
             viewModel.savePhoneNumber(binding?.phoneNumberEditTextField?.text.toString().trim())
             viewModel.saveEmailAddress(binding?.emailAddressEditTextField?.text.toString().trim())
-            viewModel.saveIndustry(binding?.industryEditTextField?.text.toString().trim())
+           // viewModel.saveIndustry(binding?.industryEditTextField?.text.toString().trim())
             findNavController().navigate(R.id.action_signUpFragment_to_accountSetUpFragment)
         }
     }
 
-    private fun isValidate(): Boolean =
-        validateFullName() && validatePhoneNumber() && validateEmail() && validateIndustry()
 
-    private fun setupListeners() {
+    fun setupIndustryAutoComplete(){
+        val industryList = listOf("Tech", "Fashion", "", "Service Provider", )
+        val industryAutoCompleteAdapter
+        =   ArrayAdapter(requireContext(), R.layout.item_autocomplete_layout, industryList)
+        binding?.autoCompleteIndustry?.setAdapter(industryAutoCompleteAdapter)
+    }
+
+    private fun isValidate(): Boolean =
+        validateFullName() && validatePhoneNumber() && validateEmail()  && validateIndustry()
+
+     fun setupListeners() {
         binding?.fullNameEditTextField?.addTextChangedListener(TextFieldValidation(binding?.fullNameEditTextField!!))
         binding?.emailAddressEditTextField?.addTextChangedListener(TextFieldValidation(binding?.emailAddressEditTextField!!))
         binding?.phoneNumberEditTextField?.addTextChangedListener(TextFieldValidation(binding?.phoneNumberEditTextField!!))
-        binding?.industryEditTextField?.addTextChangedListener(TextFieldValidation(binding?.industryEditTextField!!))
+        binding?.autoCompleteIndustry?.addTextChangedListener(TextFieldValidation(binding?.autoCompleteIndustry!!))
     }
 
     /**
@@ -130,9 +141,9 @@ class SignUpFragment : Fragment() {
      */
 
     private fun validateIndustry(): Boolean {
-        if (binding?.industryEditTextField?.text.toString().trim().isEmpty()) {
+        if (binding?.autoCompleteIndustry?.text.toString().trim().isEmpty()) {
             binding?.industryTextField?.error = "Required Field!"
-            binding?.industryEditTextField?.requestFocus()
+            binding?.autoCompleteIndustry?.requestFocus()
             return false
         } else {
             binding?.industryTextField?.isErrorEnabled = false
@@ -156,7 +167,7 @@ class SignUpFragment : Fragment() {
                 R.id.emailAddress_editTextField-> {
                     validateEmail()
                 }
-                R.id.industry_editTextField -> {
+                R.id.autoCompleteIndustry -> {
                     validateIndustry()
                 }
             }

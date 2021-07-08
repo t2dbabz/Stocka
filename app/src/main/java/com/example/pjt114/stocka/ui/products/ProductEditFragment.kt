@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -70,7 +71,7 @@ class ProductEditFragment : Fragment(), OnImageOptionListener {
 
         val imageView =  binding?.productDetailImageImageView
         val imageByteArray = Base64.decode(args.productItemEdit.productImage, Base64.DEFAULT)
-        Glide.with(imageView!!.context).load(imageByteArray).placeholder(R.drawable.add_image_placeholder).into(imageView)
+        Glide.with(imageView!!.context).load(imageByteArray).placeholder(R.drawable.click_to_add_image).into(imageView)
     }
 
     fun saveProductDetails(){
@@ -95,8 +96,8 @@ class ProductEditFragment : Fragment(), OnImageOptionListener {
             Toast.makeText(requireContext(), "Product Updated successfully", Toast.LENGTH_SHORT).show()
             println(updatedProduct)
         }
-
-        findNavController().navigate(R.id.action_productEditFragment_to_productUpdateFragment)
+        val bundle = bundleOf("purpose" to "Updated")
+        findNavController().navigate(R.id.action_productEditFragment_to_productUpdateFragment, bundle)
 
     }
 

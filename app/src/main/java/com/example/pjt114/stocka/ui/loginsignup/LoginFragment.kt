@@ -71,6 +71,11 @@ class LoginFragment : Fragment() {
                         break
                     } else {
                         isExist = false
+                        Toast.makeText(
+                            context,
+                            "Please Sign Up To Create an Account",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
