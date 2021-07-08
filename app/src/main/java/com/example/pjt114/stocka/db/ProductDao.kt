@@ -1,11 +1,9 @@
 package com.example.pjt114.stocka.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.pjt114.stocka.model.ProductItem
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
@@ -16,6 +14,9 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProductData(productItem: ProductItem)
 
+    @Delete
+    suspend fun deleteProduct(productItem: ProductItem)
+
     @Query("SELECT quantity FROM product_inventory")
     fun getAllProductQuantity(): LiveData<List<Int>>
 
@@ -24,4 +25,11 @@ interface ProductDao {
 
     @Query("SELECT * FROM product_inventory")
     fun getTotalSales(): LiveData<List<ProductItem>>
+
+    // get all product list by type type
+    @Query("SELECT * FROM product_inventory WHERE productType == :productType ORDER by createdAt DESC")
+    fun getAllProductType(productType: String): LiveData<List<ProductItem>>
+
+    @Query("SELECT * FROM product_inventory ORDER by quantitySold DESC")
+    fun getAllProductDetailsByMostSold(): LiveData<List<ProductItem>>
 }
