@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.solver.widgets.ConstraintWidget
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +35,6 @@ class AccountFragment : Fragment() {
     ): View {
         viewModel = (activity as MainActivity).viewModel
         (activity as AppCompatActivity).supportActionBar?.show()
-        (activity as AppCompatActivity).supportActionBar?.setTitleColor(Color.BLACK)
 
 
         // Inflate the layout for this fragment
@@ -47,7 +47,24 @@ class AccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.entry4?.setOnClickListener {
-            findNavController().navigate(R.id.action_accountFragment_to_loginFragment)
+
+            val alertDialog = AlertDialog.Builder(requireContext())
+
+            alertDialog.apply {
+
+                setTitle("Delete Product")
+                setMessage("Are you sure you want to Logout")
+                setPositiveButton("Yes") { _, _ ->
+                    findNavController().navigate(R.id.action_accountFragment_to_loginFragment)
+                }
+                setNegativeButton("No") { _, _ ->
+
+                }
+
+            }.create().show()
+
+
+
         }
 
         val profile =binding?.profileName

@@ -32,4 +32,10 @@ interface ProductDao {
 
     @Query("SELECT * FROM product_inventory ORDER by quantitySold DESC")
     fun getAllProductDetailsByMostSold(): LiveData<List<ProductItem>>
+
+    @Query("SELECT * FROM product_inventory WHERE name LIKE :searchQuery")
+    fun searchDatabase(searchQuery: String): LiveData<List<ProductItem>>
+
+    @Query("SELECT * FROM product_inventory WHERE name LIKE :searchQuery ORDER by quantitySold DESC")
+    fun searchDatabaseForMostSelling(searchQuery: String): LiveData<List<ProductItem>>
 }

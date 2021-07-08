@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/signUpFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.example.pjt114.stocka.ui.onboarding.ViewPagerFragment"
@@ -159,6 +159,9 @@
         <action
             android:id="@+id/action_productDetailsFragment_to_productEditFragment"
             app:destination="@id/productEditFragment" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_quickScanFragment"
+            app:destination="@id/quickScanFragment" />
     </fragment>
     <fragment
         android:id="@+id/productAddFragment"

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.databinding.FragmentSalesBinding
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
@@ -60,7 +62,7 @@ class SalesFragment : Fragment() {
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
         val string = formatter.format(calendar.time)
-        binding?.modifyMonthTextView?.text = getString(R.string.todays_date_text, string)
+        binding?.modifyMonthTextView?.setText(HtmlCompat.fromHtml(getString(R.string.todays_date_text, string), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE)
     }
 
     override fun onDestroy() {

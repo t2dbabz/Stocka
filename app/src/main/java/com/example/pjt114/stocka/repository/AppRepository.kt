@@ -25,4 +25,8 @@ class AppRepository(private val db: AppDatabase) {
 
     suspend fun deleteProduct(productItem: ProductItem) = db.getProductDao().deleteProduct(productItem)
 
+    fun searchDatabase(searchQuery: String) = db.getProductDao().searchDatabase(searchQuery)
+
+    fun searchDatabaseMostSelling(searchQuery: String) = db.getProductDao().searchDatabaseForMostSelling(searchQuery)
+
 }
