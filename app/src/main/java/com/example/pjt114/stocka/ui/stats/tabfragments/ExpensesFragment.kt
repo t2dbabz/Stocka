@@ -67,15 +67,16 @@ class ExpensesFragment : Fragment() {
         val aaChartModel: AAChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .backgroundColor("#FFFFFFFF")
-            .title("March - June")
-            .categories(arrayOf("Today", "Past Week", "Past Month", "Last Year"))
+            .title("Expenses")
+            .subtitle(getString(R.string.total_expenses_number, "10,000"))
+            .categories(arrayOf("Today", "Past Week", "Past Month", "Past Year"))
             .dataLabelsEnabled(false)
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .name("Total Sales")
+                        .name("Total Expense")
                         .color("#00D47B")
-                        .data(arrayOf(12.0, 6.9, 9.5, 14.5)),
+                        .data(arrayOf(10000, 30000, 50000, 100000)),
                 )
             )
 
@@ -170,5 +171,10 @@ class ExpensesFragment : Fragment() {
             alertDialog.cancel()
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

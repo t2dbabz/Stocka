@@ -146,11 +146,16 @@ class HomeFragment : Fragment() {
         return sharedPref.getString("fullName", "User")
     }
 
-    fun getTodayDate(){
+    private fun getTodayDate(){
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
             val string = formatter.format(calendar.time)
         binding?.overViewDateTextView?.text = getString(R.string.todays_date_text, string)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 

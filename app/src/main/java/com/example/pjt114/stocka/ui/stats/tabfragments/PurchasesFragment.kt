@@ -11,6 +11,8 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class PurchasesFragment : Fragment() {
@@ -20,6 +22,7 @@ class PurchasesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         // Inflate the layout for this fragment
         val fragmentBinding = FragmentPurchasesBinding.inflate(inflater, container, false)
         binding = fragmentBinding
@@ -28,6 +31,7 @@ class PurchasesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getTodayDate()
 
         val aaChartView = binding?.aaChartViewPurchases
 
@@ -41,11 +45,23 @@ class PurchasesFragment : Fragment() {
                 AASeriesElement()
                     .name("Total Sales")
                     .color("#00D47B")
-                    .data(arrayOf(12.0, 6.9, 9.5, 14.5)),
+                    .data(arrayOf(10000, 20000, 30000, 40000)),
             )
             )
 
         aaChartView?.aa_drawChartWithChartModel(aaChartModel)
+    }
+
+    private fun getTodayDate(){
+        val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+        val string = formatter.format(calendar.time)
+        binding?.modifyMonthTextView?.text = getString(R.string.todays_date_text, string)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 

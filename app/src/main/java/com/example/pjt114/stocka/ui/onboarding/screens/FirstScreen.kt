@@ -34,5 +34,10 @@ class FirstScreen : Fragment() {
         return fragmentBinding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 
 }
