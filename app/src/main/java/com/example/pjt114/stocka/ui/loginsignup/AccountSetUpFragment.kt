@@ -82,7 +82,7 @@ class AccountSetUpFragment : Fragment() {
             viewModel.insertNewUser(user)
             Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
             signUpCompleted()
-            findNavController().navigate(R.id.action_accountSetUpFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_accountSetUpFragment_to_homeFragment)
         }
     }
 

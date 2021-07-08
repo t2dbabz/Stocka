@@ -12,6 +12,7 @@ import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.ProductItemLayoutBinding
 import com.example.pjt114.stocka.model.ProductItem
+import java.text.DecimalFormat
 
 class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>() {
 
@@ -30,8 +31,10 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>
 
                 binding.productItemQuantityTextView.text =
                     itemView.context.getString(R.string.product_qty, productItem.quantity.toString())
+
+                val currency=(productItem.sellingPrice.toDouble()).convert()
                 binding.productItemSellingPriceTextView.text =
-                    itemView.context.getString(R.string.product_Price, productItem.sellingPrice.toString() )
+                    itemView.context.getString(R.string.product_Price, currency )
 
 
 
@@ -82,5 +85,11 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>
     private var onItemClickListener: ((ProductItem) -> Unit)? = null
     fun setOnItemClickListener(listener: (ProductItem) -> Unit) {
         onItemClickListener = listener
+    }
+
+    fun Double.convert(): String {
+        val format = DecimalFormat("#,###.0")
+        format.isDecimalSeparatorAlwaysShown = false
+        return format.format(this).toString()
     }
 }
