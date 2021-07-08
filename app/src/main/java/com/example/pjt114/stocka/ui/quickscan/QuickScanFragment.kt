@@ -157,4 +157,8 @@ class QuickScanFragment : Fragment() {
         title = text
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 }

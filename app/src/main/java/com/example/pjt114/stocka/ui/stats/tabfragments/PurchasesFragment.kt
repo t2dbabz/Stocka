@@ -59,5 +59,10 @@ class PurchasesFragment : Fragment() {
         binding?.modifyMonthTextView?.text = getString(R.string.todays_date_text, string)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 
 }

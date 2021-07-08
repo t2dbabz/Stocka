@@ -153,5 +153,10 @@ class HomeFragment : Fragment() {
         binding?.overViewDateTextView?.text = getString(R.string.todays_date_text, string)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 
 }

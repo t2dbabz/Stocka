@@ -188,19 +188,24 @@ class AccountSetUpFragment : Fragment() {
         }
     }
 
-    fun signUpCompleted(){
+    private fun signUpCompleted(){
         val sharedPref = requireActivity().getSharedPreferences("signUpDone", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putBoolean("SignUpComplete", true)
         editor.apply()
     }
 
-    fun userDetails(){
+    private fun userDetails(){
         val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putString("fullName", viewModel.fullName)
         editor.putString("userName", viewModel.userName)
         editor.apply()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 }

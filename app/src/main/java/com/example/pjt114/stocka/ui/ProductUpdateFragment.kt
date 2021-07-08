@@ -43,6 +43,11 @@ class ProductUpdateFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 
 //TODO BINDING NULL ON DESTROY
 }

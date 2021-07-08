@@ -74,4 +74,9 @@ class StatsFragment : Fragment() {
         }.attach()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 }

@@ -298,4 +298,9 @@ class ProductAddFragment : Fragment(), OnImageOptionListener {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 }

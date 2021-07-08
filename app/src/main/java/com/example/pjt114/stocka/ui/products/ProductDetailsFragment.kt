@@ -128,4 +128,10 @@ class ProductDetailsFragment : Fragment() {
         return format.format(this).toString()
     }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 }
