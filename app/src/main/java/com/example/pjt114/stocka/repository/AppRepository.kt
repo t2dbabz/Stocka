@@ -20,5 +20,9 @@ class AppRepository(private val db: AppDatabase) {
     fun getAllProductQuantity() = db.getProductDao().getAllProductQuantity()
     fun getAllProductQuantitySold() = db.getProductDao().getAllProductQuantitySold()
     fun getTotalSales() = db.getProductDao().getTotalSales()
+    fun getProductType(productType: String) = db.getProductDao().getAllProductType(productType)
+    fun getAllProductsByMostSold() =db.getProductDao().getAllProductDetailsByMostSold()
+
+    suspend fun deleteProduct(productItem: ProductItem) = db.getProductDao().deleteProduct(productItem)
 
 }

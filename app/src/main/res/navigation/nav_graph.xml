@@ -86,7 +86,7 @@
             app:argType="com.example.pjt114.stocka.model.User" />
         <action
             android:id="@+id/action_homeFragment_to_productEditFragment"
-            app:destination="@id/productEditFragment" />
+            app:destination="@id/productAddFragment" />
         <action
             android:id="@+id/action_homeFragment_to_quickScanFragment"
             app:destination="@id/quickScanFragment"
@@ -111,7 +111,7 @@
             app:destination="@id/productDetailsFragment" />
         <action
             android:id="@+id/action_productsFragment_to_productEditFragment"
-            app:destination="@id/productEditFragment" />
+            app:destination="@id/productAddFragment" />
 
     </fragment>
     <fragment
@@ -147,19 +147,22 @@
         android:label="Details"
         tools:layout="@layout/fragment_product_details">
         <action
-            android:id="@+id/action_productDetailsFragment_to_productEditFragment"
-            app:destination="@id/productEditFragment" />
+            android:id="@+id/action_productDetailsFragment_to_productAddFragment"
+            app:destination="@id/productAddFragment" />
         <argument
             android:name="productItem"
             app:argType="com.example.pjt114.stocka.model.ProductItem" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_productEditFragment"
+            app:destination="@id/productEditFragment" />
     </fragment>
     <fragment
-        android:id="@+id/productEditFragment"
-        android:name="com.example.pjt114.stocka.ui.products.ProductEditFragment"
-        android:label="Edit Product"
-        tools:layout="@layout/fragment_product_edit">
+        android:id="@+id/productAddFragment"
+        android:name="com.example.pjt114.stocka.ui.products.ProductAddFragment"
+        android:label="Add Product"
+        tools:layout="@layout/fragment_product_add">
         <action
-            android:id="@+id/action_productEditFragment_to_productUpdateFragment"
+            android:id="@+id/action_productAddFragment_to_productUpdateFragment"
             app:destination="@id/productUpdateFragment" />
     </fragment>
     <fragment
@@ -170,5 +173,17 @@
         <argument
             android:name="expenseItem"
             app:argType="com.example.pjt114.stocka.model.Expense" />
+    </fragment>
+    <fragment
+        android:id="@+id/productEditFragment"
+        android:name="com.example.pjt114.stocka.ui.products.ProductEditFragment"
+        android:label="Edit Product"
+        tools:layout="@layout/fragment_product_edit">
+        <argument
+            android:name="productItemEdit"
+            app:argType="com.example.pjt114.stocka.model.ProductItem" />
+        <action
+            android:id="@+id/action_productEditFragment_to_productUpdateFragment"
+            app:destination="@id/productUpdateFragment" />
     </fragment>
 </navigation>

@@ -19,8 +19,11 @@ import com.example.pjt114.stocka.data.DataSource
 import com.example.pjt114.stocka.databinding.FragmentProductsBinding
 import com.google.android.material.animation.AnimationUtils
 import android.view.animation.Animation
+import android.widget.Toast
 import com.example.pjt114.stocka.MainActivity
+import com.example.pjt114.stocka.model.ProductItem
 import com.example.pjt114.stocka.viewmodel.SharedViewModel
+import com.google.android.material.chip.Chip
 
 
 class ProductsFragment : Fragment() {
@@ -28,6 +31,7 @@ class ProductsFragment : Fragment() {
     private var binding: FragmentProductsBinding? = null
     private lateinit var productAdapter: ProductAdapter
     lateinit var viewModel: SharedViewModel
+    var productList = mutableListOf<ProductItem>()
 
     var closed = false
     val add =binding?.add
@@ -52,20 +56,10 @@ class ProductsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         productAdapter = ProductAdapter()
 
-//        productAdapter.differ.submitList(DataSource().loadProducts())
         binding?.productItemRecyclerView?.adapter = productAdapter
         binding?.productItemRecyclerView?.layoutManager = LinearLayoutManager(activity)
-
-        viewModel.getAllProducts().observe(viewLifecycleOwner,{
-
-            if (it.isNotEmpty()){
-                binding?.emptyStateProductTextView?.visibility = View.GONE
-            }else{
-                binding?.emptyStateProductTextView?.visibility = View.VISIBLE
-            }
-            productAdapter.differ.submitList(it)
-            productAdapter.notifyDataSetChanged()
-        })
+        getAllProduct()
+        setupProductType()
 
 
 
@@ -92,12 +86,10 @@ class ProductsFragment : Fragment() {
         settings?.setOnClickListener {
 
         }
-    }
 
-    private fun ActionBar.setTitleColor(color: Int) {
-        val text = SpannableString(title ?: "")
-        text.setSpan(ForegroundColorSpan(color),0,text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        title = text
+
+
+
     }
 
     private fun OnAddButtonClick() {
@@ -129,6 +121,74 @@ class ProductsFragment : Fragment() {
             settings?.visibility = View.INVISIBLE
         }
     }
+
+    private fun getAllProduct(){
+        viewModel.getAllProducts().observe(viewLifecycleOwner,{
+
+            if (it.isNotEmpty()){
+                binding?.emptyStateProductTextView?.visibility = View.GONE
+            }else{
+                binding?.emptyStateProductTextView?.visibility = View.VISIBLE
+            }
+            productAdapter.differ.submitList(it)
+            productAdapter.notifyDataSetChanged()
+
+        })
+    }
+    private fun setupProductType(){
+        binding?.chipGroup?.setOnCheckedChangeListener { group, checkedId ->
+
+            when(checkedId) {
+
+                R.id.allProducts_chip -> {
+                    getAllProduct()
+                }
+
+                R.id.provisions_chip -> {
+                    viewModel.getAllProductType("Provisions").observe(viewLifecycleOwner,{
+                        if (it.isNotEmpty()){
+                            binding?.emptyStateProductTextView?.visibility = View.GONE
+                        }else{
+                            binding?.emptyStateProductTextView?.text = "No Products in Provisions Category"
+                            binding?.emptyStateProductTextView?.visibility = View.VISIBLE
+                        }
+                        productAdapter.differ.submitList(it)
+                        productAdapter.notifyDataSetChanged()
+                    })
+                }
+
+                R.id.kitchen_chip -> {
+                    viewModel.getAllProductType("Kitchen").observe(viewLifecycleOwner,{
+                        if (it.isNotEmpty()){
+                            binding?.emptyStateProductTextView?.visibility = View.GONE
+                        }else{
+                            binding?.emptyStateProductTextView?.text = "No Products in Kitchen Category"
+                            binding?.emptyStateProductTextView?.visibility = View.VISIBLE
+                        }
+
+                        productAdapter.differ.submitList(it)
+                        productAdapter.notifyDataSetChanged()
+                    })
+
+                }
+
+                R.id.others_chip -> {
+                    viewModel.getAllProductType("Others").observe(viewLifecycleOwner,{
+                        if (it.isNotEmpty()){
+                            binding?.emptyStateProductTextView?.visibility = View.GONE
+                        }else{
+                            binding?.emptyStateProductTextView?.text = "No Products in Others Category"
+                            binding?.emptyStateProductTextView?.visibility = View.VISIBLE
+                        }
+                        productAdapter.differ.submitList(it)
+                        productAdapter.notifyDataSetChanged()
+                    })
+                }
+            }
+        }
+
+    }
+
 
 
 }
