@@ -83,21 +83,21 @@ class ProfitLossFragment : Fragment() {
                 AASeriesElement()
                     .name("Total Sales")
                     .color("#00D47B")
-                    .data(arrayOf(12.0, 6.9, 9.5, 14.5)),
+                    .data(arrayOf(100000, 200000, 300000, 400000, 500000)),
                 AASeriesElement()
                     .name("Total Purchases")
                     .color("#FFCC49")
-                    .data(arrayOf(8.0, 5.8, 6.7, 11.3)),
+                    .data(arrayOf(60000, 150000, 200000, 300000, 400000)),
 
                 AASeriesElement()
                     .name("Total Expenses")
                     .color("#00FFFF")
-                    .data(arrayOf(8.0, 5.8, 6.7, 11.3)),
+                    .data(arrayOf(20000, 30000, 40000, 50000, 60000)),
 
                 AASeriesElement()
                     .name("Net Profit")
                     .color("#F59300")
-                    .data(arrayOf(8.0, 5.8, 6.7, 11.3)),
+                    .data(arrayOf(30000, 50000, 80000, 100000, 120000)),
                 )
             )
 
@@ -146,5 +146,9 @@ class ProfitLossFragment : Fragment() {
         })
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 
 }

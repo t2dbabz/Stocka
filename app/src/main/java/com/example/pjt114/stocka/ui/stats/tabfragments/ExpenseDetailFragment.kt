@@ -73,4 +73,9 @@ class ExpenseDetailFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 }

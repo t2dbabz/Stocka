@@ -58,7 +58,7 @@ class AccountSetUpFragment : Fragment() {
                 for( i in user.indices){
                     if(user[i].userName == binding?.usernameEditTextField?.text.toString().trim()){
                         isExist = true
-                        Toast.makeText(context, "Username Already Exist", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Username Already Exist Please Change Username", Toast.LENGTH_SHORT).show()
                         break
                     } else{
                         isExist = false
@@ -96,7 +96,7 @@ class AccountSetUpFragment : Fragment() {
     }
 
     /**
-     * field must not be empy
+     * field must not be empty
      */
 
     private fun validateUsername(): Boolean {
@@ -161,6 +161,7 @@ class AccountSetUpFragment : Fragment() {
                 binding?.confirmPasswordTextField?.isErrorEnabled = false
             }
         }
+
         return true
     }
 
@@ -187,19 +188,24 @@ class AccountSetUpFragment : Fragment() {
         }
     }
 
-    fun signUpCompleted(){
+    private fun signUpCompleted(){
         val sharedPref = requireActivity().getSharedPreferences("signUpDone", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putBoolean("SignUpComplete", true)
         editor.apply()
     }
 
-    fun userDetails(){
+    private fun userDetails(){
         val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putString("fullName", viewModel.fullName)
         editor.putString("userName", viewModel.userName)
         editor.apply()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 }

@@ -17,6 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.afollestad.assent.Permission
 import com.afollestad.assent.runWithPermissions
@@ -78,7 +79,8 @@ class QuickScanFragment : Fragment() {
 
 
         binding?.bottomSheet?.quickScanSellButton?.setOnClickListener {
-            findNavController().navigate(R.id.action_quickScanFragment_to_productUpdateFragment)
+            val bundle = bundleOf("purpose" to "Sold")
+            findNavController().navigate(R.id.action_quickScanFragment_to_productUpdateFragment, bundle)
         }
     }
 
@@ -155,4 +157,8 @@ class QuickScanFragment : Fragment() {
         title = text
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 }

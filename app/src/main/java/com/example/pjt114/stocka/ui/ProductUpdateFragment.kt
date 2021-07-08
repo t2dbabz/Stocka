@@ -12,12 +12,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.pjt114.stocka.R
 import com.example.pjt114.stocka.databinding.FragmentProductUpdateBinding
 
 
 class ProductUpdateFragment : Fragment() {
     private var binding: FragmentProductUpdateBinding? = null
+    val args : ProductUpdateFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,11 +36,18 @@ class ProductUpdateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+           binding?.productTextView?.text = getString(R.string.product_purpose_message, args.purpose)
+
         binding?.backToHomeButton?.setOnClickListener {
             findNavController().navigate(R.id.action_productUpdateFragment_to_homeFragment)
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 
 
+//TODO BINDING NULL ON DESTROY
 }

@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.afollestad.assent.Permission
@@ -198,7 +199,8 @@ class ProductAddFragment : Fragment(), OnImageOptionListener {
             Toast.makeText(requireContext(), "Product added successfully", Toast.LENGTH_SHORT).show()
             println(newProduct)
         }
-        findNavController().navigate(R.id.action_productAddFragment_to_productUpdateFragment)
+        val bundle = bundleOf("purpose" to "Added")
+        findNavController().navigate(R.id.action_productAddFragment_to_productUpdateFragment, bundle)
     }
 
     private fun isValidate(): Boolean =
@@ -294,6 +296,11 @@ class ProductAddFragment : Fragment(), OnImageOptionListener {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 }
