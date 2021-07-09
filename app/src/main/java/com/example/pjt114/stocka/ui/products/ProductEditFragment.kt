@@ -90,7 +90,9 @@ class ProductEditFragment : Fragment(), OnImageOptionListener {
                 sellingPrice= productSellingPrice.toDouble(),
                 buyingPrice = productBuyingPrice.toDouble(),
                 productType = args.productItemEdit.productType,
-                barcode = args.productItemEdit.barcode
+                barcode = args.productItemEdit.barcode,
+                quantitySold = args.productItemEdit.quantitySold,
+                createdAt = args.productItemEdit.createdAt
             )
             viewModel.insertNewProduct(updatedProduct)
             Toast.makeText(requireContext(), "Product Updated successfully", Toast.LENGTH_SHORT).show()

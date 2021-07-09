@@ -52,7 +52,7 @@ class AccountFragment : Fragment() {
 
             alertDialog.apply {
 
-                setTitle("Delete Product")
+                setTitle("Logout")
                 setMessage("Are you sure you want to Logout")
                 setPositiveButton("Yes") { _, _ ->
                     findNavController().navigate(R.id.action_accountFragment_to_loginFragment)
