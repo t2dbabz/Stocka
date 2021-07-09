@@ -8,12 +8,84 @@ Some of the wow features of Stocka will include a long term graphical analysis t
 ## Design 
 The Design Mockup for this project was Created using Figma. You can find the design by following this [link](https://www.figma.com/file/ttEUL6WHpolmOJpNVVONgY/Stocka-APP)
 
-## Features
+## App Features
+* Sign up Login
+* Add product into specific categories
+* Search, Edit and Delete products from inventory
+* Sell products using quick scan to scan product barcode
+
+
+## Android Features
 *   MVVM with Android Architecture Components
 *   Material design.
 *   Navigation Component
+
+## App Screenshots
+<table>
+    <tr>
+    <td>Splash Screen</td>
+      <td>Onboarding 1</td>
+    <td>Onboarding 2</td>
+  </tr>
+   <tr>
+    <td><img src="App ScreenShots/SplashScreen.jpg" width=250 height=480></td>
+    <td><img src="App ScreenShots/Onboarding 1.jpg" width=250 height=480></td>
+    <td><img src="App ScreenShots/Onboarding 2.jpg" width=250 height=480></td>
+  </tr>
+  </table>
+  
+  <table>
+    <tr>
+    <td>Sign Up Screen</td>
+      <td>Account Setup Screen</td>
+       <td>Home Screen</td>
+  </tr>
+   <tr>
+    <td><img src="App ScreenShots/Sign Up Screen.jpg" width=250 height=480></td>
+    <td><img src="App ScreenShots/Account Setup.jpg" width=250 height=480></td>
+      <td><img src="App ScreenShots/Home Screen.jpg" width=250 height=480></td>
+  </tr>
+  </table>
+  
+<table>
+    <tr>
+      <td>Stats Screen</td>
+      <td>Products Screen</td>
+       <td>Quick Scan</td>
+  </tr>
+   <tr>
+    <td><img src="App ScreenShots/Stats Screen.jpg" width=250 height=480></td>
+    <td><img src="App ScreenShots/Product Screen.jpg" width=250 height=480></td>
+      <td><img src="App ScreenShots/Quick Scan Screen.jpg" width=250 height=480></td>
+  </tr>
+  </table>
+  
+  <table>
+    <tr>
+       <td>Add Product Screen</td>
+       <td>Add Expense Screen</td>
+      <td>Account Screen</td>
+  </tr>
+   <tr>
+     <td><img src="App ScreenShots/Add Product Screen.jpg" width=250 height=480></td>
+    <td><img src="App ScreenShots/Add Expense.jpg" width=250 height=480></td>
+      <td><img src="App ScreenShots/Account Screen.jpg" width=250 height=480></td>
+  </tr>
+  </table>
+  
+## Team
+# Android Developers
+- [Babatunde Owoleke](https://github.com/t2dbabz)
+- [Victor Okon](https://github.com/Vcky4)
+- [Arinze Ndubuishi](https://github.com/nzechu)
+  
+
+
 ## Libraries
 * [AAChartModel](https://github.com/AAChartModel/AAChartCore-Kotlin)
+* [Zxing](https://github.com/journeyapps/zxing-android-embedded)
+* [Glide](https://github.com/bumptech/glide)
+* [Image Picker](https://github.com/Dhaval2404/ImagePicker)
 
 ## Prerequisites
 *   Android Studio IDE 4.0+
