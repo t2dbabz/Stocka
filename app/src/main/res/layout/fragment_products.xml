@@ -69,10 +69,11 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chipGroup"
         tools:listitem="@layout/product_item_layout" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
@@ -88,16 +89,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_24"
         tools:ignore="VectorDrawableCompat" />
+
     <!--This act a child Floating Action Button-->
     <!-- The visibility is been set to INVISIBLE -->
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_f"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:clickable="true"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:focusable="true"
         android:tint="@color/white"
         app:fabSize="mini"
@@ -105,6 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/add"
         app:layout_constraintEnd_toEndOf="@+id/add"
         app:srcCompat="@drawable/ic_create_group" />
+
     <!--This act a child Floating Action Button-->
     <!-- The visibility is been set to INVISIBLE -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -114,7 +116,7 @@
         android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:tint="@color/white"
         app:fabSize="mini"
         android:backgroundTint="@color/red"
