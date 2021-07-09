@@ -59,11 +59,11 @@ class ProfitLossFragment : Fragment() {
             .dataLabelsEnabled(false)
             .series(arrayOf(
                 AASeriesElement()
-                    .name("Total Sales")
+                    .name("Gross Profit")
                     .color("#00D47B")
                     .data(arrayOf(3500, 2000, 4000, 5000)),
                 AASeriesElement()
-                    .name("Total Purchases")
+                    .name("Gross Expenses")
                     .color("#F59300")
                     .data(arrayOf(2000, 1500, 300, 4000)),
                 )

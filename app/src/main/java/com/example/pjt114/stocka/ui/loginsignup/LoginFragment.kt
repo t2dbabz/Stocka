@@ -57,9 +57,8 @@ class LoginFragment : Fragment() {
                 for (i in user.indices) {
                     if (user[i].userName == binding?.usernameEditTextField?.text.toString().trim()) {
                                 if (user[i].password == binding?.passwordEditTextField?.text.toString().trim()) {
-                                    val display = user[i].userName
-                                    val bundle = bundleOf("display" to display)
-                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment, bundle)
+
+                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {
                             Toast.makeText(
                                 context,
