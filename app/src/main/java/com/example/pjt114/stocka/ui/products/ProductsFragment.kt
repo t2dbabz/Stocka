@@ -20,6 +20,7 @@ import com.example.pjt114.stocka.databinding.FragmentProductsBinding
 import com.google.android.material.animation.AnimationUtils
 import android.view.animation.Animation
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import com.example.pjt114.stocka.MainActivity
 import com.example.pjt114.stocka.model.ProductItem
 import com.example.pjt114.stocka.viewmodel.SharedViewModel
@@ -60,6 +61,7 @@ class ProductsFragment : Fragment() {
         binding?.productItemRecyclerView?.layoutManager = LinearLayoutManager(activity)
         getAllProduct()
         setupProductType()
+        setupSearchView()
 
 
 
@@ -187,6 +189,36 @@ class ProductsFragment : Fragment() {
             }
         }
 
+    }
+
+    fun setupSearchView(){
+        binding?.productSearchView?.isSubmitButtonEnabled = true
+        binding?.productSearchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+               if (query != null){
+                   searchDatabase(query)
+               }
+                return true
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                if (query != null){
+                    searchDatabase(query)
+                }
+                return true
+            }
+
+        })
+    }
+
+    private fun searchDatabase(query: String){
+        val searchQuery = "%$query%"
+
+        viewModel.searchDatabase(searchQuery).observe(viewLifecycleOwner, {list ->
+            list.let {
+                productAdapter.differ.submitList(it)
+            }
+        })
     }
 
     override fun onDestroy() {

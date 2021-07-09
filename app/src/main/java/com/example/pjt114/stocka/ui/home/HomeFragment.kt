@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.core.text.HtmlCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pjt114.stocka.MainActivity
@@ -53,7 +56,7 @@ class HomeFragment : Fragment() {
         salesOverView()
         quickAction()
         getTodayDate()
-
+        setupSearchView()
 
         productAdapter = ProductAdapter()
         binding?.homeFragmentRecyclerView?.adapter = productAdapter
@@ -143,14 +146,45 @@ class HomeFragment : Fragment() {
 
     private fun getUserDetails(): String?{
         val sharedPref = requireActivity().getSharedPreferences("userDetails", Context.MODE_PRIVATE)
-        return sharedPref.getString("fullName", "User")
+        return sharedPref.getString("userName", "User")
     }
 
     private fun getTodayDate(){
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
             val string = formatter.format(calendar.time)
-        binding?.overViewDateTextView?.text = getString(R.string.todays_date_text, string)
+        binding?.overViewDateTextView?.setText(HtmlCompat.fromHtml(getString(R.string.todays_date_text, string), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE)
+    }
+
+
+    fun setupSearchView(){
+        binding?.homeSearchView?.isSubmitButtonEnabled = true
+        binding?.homeSearchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null){
+                    searchDatabase(query)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                if (query != null){
+                    searchDatabase(query)
+                }
+                return true
+            }
+
+        })
+    }
+
+    private fun searchDatabase(query: String){
+        val searchQuery = "%$query%"
+
+        viewModel.searchDatabaseMostSelling(searchQuery).observe(viewLifecycleOwner, {list ->
+            list.let {
+                productAdapter.differ.submitList(it)
+            }
+        })
     }
 
     override fun onDestroy() {

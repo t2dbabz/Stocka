@@ -70,7 +70,9 @@ class SignUpFragment : Fragment() {
 
 
     fun setupIndustryAutoComplete(){
-        val industryList = listOf("Tech", "Fashion", "", "Service Provider", )
+        val industryList = listOf(
+            "Tech", "Fashion", "Ecommerce", "Service Provider", "Art",
+            "Agriculture", "Catering", "Manufacturing" )
         val industryAutoCompleteAdapter
         =   ArrayAdapter(requireContext(), R.layout.item_autocomplete_layout, industryList)
         binding?.autoCompleteIndustry?.setAdapter(industryAutoCompleteAdapter)
