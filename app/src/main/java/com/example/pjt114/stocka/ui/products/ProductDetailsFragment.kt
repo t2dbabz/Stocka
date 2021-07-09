@@ -67,6 +67,10 @@ class ProductDetailsFragment : Fragment() {
         binding?.productDetailTotalTextView?.text =
             getString(R.string.product_detail_total_price, totalPriceOfProduct(args.productItem) )
 
+        binding?.scannerButtonImageView?.setOnClickListener {
+            findNavController().navigate(R.id.action_productDetailsFragment_to_quickScanFragment)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

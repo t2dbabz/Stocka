@@ -139,6 +139,9 @@ class SharedViewModel( val appRepository: AppRepository): ViewModel() {
         appRepository.deleteProduct(productItem)
     }
 
+    fun searchDatabase(searchQuery: String) = appRepository.searchDatabase(searchQuery)
+
+    fun searchDatabaseMostSelling(searchQuery: String) = appRepository.searchDatabaseMostSelling(searchQuery)
 
 
 }

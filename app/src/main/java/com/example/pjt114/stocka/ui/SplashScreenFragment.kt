@@ -33,7 +33,7 @@ class SplashScreenFragment : Fragment() {
                 delay(2000)
                 findNavController().navigate(R.id.action_splashScreenFragment_to_signUpFragment)
             } else{
-                delay(3000)
+                delay(2000)
                 findNavController().navigate(R.id.action_splashScreenFragment_to_viewPagerFragment)
             }
 
